@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<!--
+Una vez que sepamos como manejar diferentes usuarios, este recurso y "homeUser.html" se convertirá en un único "home.html".
+La diferencia se manejará mediante los condicionales de ThymeLeaf especificados en "plantillaBarrasUser.html" y "plantillaBarrasAdmin.html".
+-->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    
+    <head th:replace="layout/plantillaBarrasAdmin :: head"></head>
+
+    <body>
+
+        <header th:replace="layout/plantillaBarrasAdmin :: barras-navegacion"></header>
+
+    </body>
+</html>
