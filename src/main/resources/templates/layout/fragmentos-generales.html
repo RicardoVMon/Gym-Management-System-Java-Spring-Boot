@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+    <head th:fragment="head">
+        <title>Gym App</title>
+        <meta charset="UTF-8" />
+        <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
+        <link th:href="@{/webjars/font-awesome/css/all.css}" rel="stylesheet"/>
+        <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+        <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+        <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+        <link href="../../static/css/estilosBarras.css" rel="stylesheet" type="text/css"/>
+    </head>
+
+    <body>
+
+        <!-- Navbar Horizontal -->
+        <section th:fragment="navbar" class="container-fluid navbar">
+
+            <div class="row row-navbar navbar-links">
+
+                <!-- Izquierda: Back -->
+                <div class="col" style="text-align: left">
+                    <a href=""><i class="fa-regular fa-circle-left navbar-icons" ></i></a>
+                </div>
+
+                <!-- Centro: Hora -->
+                <div class="col" style="text-align: center">
+                    <p>[HORA O USUARIO]</p>
+                </div>
+
+                <!-- Derecha: Idioma + Cuenta -->
+                <div class="col" style="text-align: right">
+                    <a href="" style="margin-right: 10px"><i class="fa-solid fa-language navbar-icons"></i></a>
+                    <a href=""><i class="fa-regular fa-circle-user navbar-icons"></i></a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Sidebar Vertical (Admin) -->
+        <section  th:fragment="sidebar-admin" class="container sidebar">
+
+            <div class="row row-sidebar">
+
+                <div class="sidebar-header">
+                    <h3>Legends Workout Tracker</h3>
+                    <hr>
+                </div>
+
+                <!-- Funcionalidades Específicas al Admin -->
+                <div class="sidebar-links">
+                    <a href="" class="card"><i class="fa-regular fa-calendar"></i> Rutinas</a>
+
+                    <a href="" class="card"><i class="fa-solid fa-users"></i> Usuarios</a>
+
+                    <a href="" class="card"><i class="fas fa-dumbbell"></i> Ejercicios</a>
+                </div>
+
+                <div class="sidebar-footer">
+                    <hr>
+                        <p>
+                            <span>Legends Workout &#174;</span>
+                            <span>2024</span>
+                        </p> 
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- Sidebar Vertical (User) -->
+        <section  th:fragment="sidebar-user" class="container sidebar">
+
+            <div class="row row-sidebar">
+
+                <div class="sidebar-header">
+                    <h3>Legends Workout Tracker</h3>
+                    <hr class="sidebar-hr">
+                </div>
+
+                <!-- Funcionalidades Específicas al Usuario -->
+                <div class="sidebar-links">
+                    <a href="" class="card"><i class="fas fa-dumbbell"></i> Mis Rutinas</a>
+
+                    <a href="" class="card"><i class="fa-solid fa-child-reaching"></i> Estiramientos</a>
+
+                    <a href="" class="card"><i class="fas fa-ruler"></i> Mis Medidas</a>
+                </div>
+
+                <div class="sidebar-footer">
+                    <hr class="sidebar-hr">
+                        <p>
+                            <span>Legends Workout &#174;</span>
+                            <span>2024</span>
+                        </p> 
+                </div>
+
+            </div>
+
+        </section>
+
+    </body>
+
+</html>
