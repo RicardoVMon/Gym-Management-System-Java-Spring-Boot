@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+    <head th:replace="~{layout/plantilla-login :: head}"></head>
+
+    <body class="d-flex flex-column min-vh-100">
+
+        <nav class="navbar bg-dark navbar-dark navbar-extend p-2">
+            <div class="container-fluid">
+                <a class="navbar-brand fs-4 fw-bold" th:href="@{/}">
+                    <i class="fa-solid fa-dumbbell mx-2"></i> Work Hard, Gain Hard
+                </a>
+            </div>
+        </nav>
+
+        <section class="container-fluid d-flex flex-grow-1 px-0">
+            <div class="col">
+                <img src="https://www.dexeus.com/blog/wp-content/uploads/2019/11/shutterstock_1495916660.jpg" class="img-fluid" style="object-fit: cover; height: 100%">
+            </div>
+            <div class="col d-flex align-items-center">
+                <div class="container-fluid d-flex flex-column">
+                    <form class="pb-5 border-bottom px-5" th:action="@{/}" method="GET">
+                        <div class="text-center fw-bold" style="font-size: 10vh">Legends Workout</div>
+                        <h2 class="mb-5 text-center">Login de Usuario</h2>
+                        <div class="form-group form-floating mb-4">
+                            <input type="text" id="" class="form-control" placeholder="Correo" name="" />
+                            <label class="form-label">Correo Electrónico</label>
+                        </div>
+                        <div class="form-group form-floating mb-4">
+                            <input type="password" class="form-control" placeholder="Contraseña" name="" />
+                            <label class="form-label">Contraseña</label>
+                        </div>
+                        <div class="form-group text-center">
+                            <button type="submit" class="btn btn-primary btn-lg">
+                                Iniciar Sesión
+                            </button>
+                        </div>
+                    </form>
+                    <a class="mt-4 text-center under" th:href="@{/registro}">¿No tenés Cuenta? <br> ¡Crea una ya! </a>
+                </div>
+            </div>
+        </section>
+
+    </body>
+
+</html>
