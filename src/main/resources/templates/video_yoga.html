@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+    <head th:replace="layout/fragmentos-generales :: head">       
+    </head>
+
+    <body class="bg-dark text-white">
+        <section th:replace="layout/fragmentos-generales :: navbar"></section>
+        <section th:replace="layout/fragmentos-generales :: sidebar-user"></section> 
+
+        <h1 style="text-align: center;color: #a9f41e; margin-top: 110px"> Video Yoga</h1>
+        <div class="container text-center">
+            <div class="container text-center">
+                <iframe width="800" height="450" src="https://www.youtube.com/embed/d-xp2uOl3Gc?si=2aOEL8BBdyH6Gq77" 
+                        title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; 
+                        clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+            <div class="text-container" style="max-width: 800px; margin: 0 auto;">
+                <p style="font-size: 16px;">Ayuda a preparar tu cuerpo y mente 
+                    para el entrenamiento con estiramientos de yoga. Estirar 
+                    antes de ejercitarte mejora la flexibilidad y reduce el 
+                    riesgo de lesiones. ¡Inténtalo hoy!</p>
+            </div>
+            <a href="estiramientos_user">
+                <button type="button" class="btn btn-outline-secondary" style="color:#a9f41e">
+                    <i class="fas fa-arrow-left" style="color:#a9f41e"></i> 
+                </button>
+            </a>
+    </body>
+
+</html>

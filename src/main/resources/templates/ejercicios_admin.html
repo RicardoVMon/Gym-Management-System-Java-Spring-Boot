@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="layout/fragmentos-generales :: head"></head>
+    <body class="bg-dark text-white"> 
+        <section th:replace="layout/fragmentos-generales :: navbar"></section>
+        <section th:replace="layout/fragmentos-generales :: sidebar-admin"></section>  
+
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h2 style="color: #a9f41e;margin-top: 60px;">Ejercicios</h2>
+                </div>
+                <div class="col">
+                    <form class="d-flex justify-content-end" style="margin-top: 60px; margin-left: 160px;color:#a9f41e;" role="search"> 
+                        <div class="input-group">
+                            <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar">
+                                <button class="btn btn-outline-secondary" style="color: #a9f41e" type="submit">Buscar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Tabla -->
+            <table class="table table-dark" style="margin-top: 40px;"> 
+                <thead>
+                    <tr>
+                        <th style="font-size: 25px;">D</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- EJEMPLOS de la tabla -->
+                    <tr>
+                        <td>Dominadas</td>
+                        <td>
+                             <!-- crear otro modal de editar cuando este la BD -->
+                            <a href="#" class="btn btn-primary btn-sm" onclick="mostrarModal()">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                            <button onclick="eliminar(1)" class="btn btn-danger btn-sm">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Desplantes</td>
+                        <td>
+                             <!-- crear otro modal de editar cuando este la BD -->
+                            <a href="#" class="btn btn-primary btn-sm" onclick="mostrarModal()">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                            <button onclick="eliminar(2)" class="btn btn-danger btn-sm">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Deltoide Posterior</td>
+                        <td>
+                             <!-- crear otro modal de editar cuando este la BD -->
+                           <a href="#" class="btn btn-primary btn-sm" onclick="mostrarModal()">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                            <button onclick="eliminar(3)" class="btn btn-danger btn-sm">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="container">
+            <!-- Tabla -->
+            <table class="table table-dark" style="margin-top: 60px;"> 
+                <thead>
+                    <tr>
+                        <th style="font-size: 25px;">S</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- EJEMPLOS de la tabla -->
+                    <tr>
+                        <td>Sentadilla bulgara</td>
+                        <td>
+                             <!-- crear otro modal de editar cuando este la BD -->
+                            <a href="#" class="btn btn-primary btn-sm" onclick="mostrarModal()">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                            <button onclick="eliminar(1)" class="btn btn-danger btn-sm">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Saltos</td>
+                        <td>
+                            <a href="#" class="btn btn-primary btn-sm" onclick="mostrarModal()">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                            <!-- crear otro modal de editar cuando este la BD -->
+                            <button onclick="eliminar(2)" class="btn btn-danger btn-sm">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                        </td>
+                    </tr>               
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Aquí se colocará el mensaje para lo de eliminar -->
+
+        
+        <!-- Botón para agregar un nuevo ejercicio -->
+        <a href="#" class="btn btn-outline-secondary" style="margin-top: 30px; margin-left: 1200px;color: #a9f41e;" onclick="mostrarModal()"> 
+            <i class="fas fa-plus"></i> 
+        </a>
+
+        <!-- Modal -->
+        <div class="modal fade" id="nuevoEjercicioModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dark">
+                <div class="modal-content bg-dark text-white">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel" style="color: #a9f41e">Agregar Nuevo Ejercicio</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <label for="nombreEjercicio" class="form-label" style="color:white">Nombre del ejercicio:</label>
+                        <input type="text" class="form-control" id="nombreEjercicio">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn btn-success" style="color: #a9f41e" onclick="guardarEjercicio()">Guardar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal Scrip editar y moverlo cuando tengamos la base de datos-->
+        <script>
+            function mostrarModal() {
+                $('#nuevoEjercicioModal').modal('show');
+            }
+
+            function guardarEjercicio() {
+                var nombreEjercicio = document.getElementById('nombreEjercicio').value;
+                // Cuanto tengamos base la logica aqui
+                console.log("Se guardó el ejercicio: " + nombreEjercicio);
+                $('#nuevoEjercicioModal').modal('hide');
+            }
+        </script>
+
+    </body>
+</html>
