@@ -1,7 +1,16 @@
 <!DOCTYPE html>
 
 <html>
-    <head th:replace="~{layout/plantilla-login :: head}"></head>
+    <head>
+        <title>Gym App</title>
+        <meta charset="UTF-8" />
+        <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
+        <link th:href="@{/webjars/font-awesome/css/all.css}" rel="stylesheet"/>
+        <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+        <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+        <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+    </head>
+    
     <body class="d-flex flex-column min-vh-100">
 
         <nav class="navbar bg-dark navbar-dark navbar-extend p-2">
