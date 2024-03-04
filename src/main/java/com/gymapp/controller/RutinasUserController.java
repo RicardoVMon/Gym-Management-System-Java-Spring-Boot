@@ -13,4 +13,5 @@ public class RutinasUserController {
         return "rutinas-user";
     }
     
+    
 }

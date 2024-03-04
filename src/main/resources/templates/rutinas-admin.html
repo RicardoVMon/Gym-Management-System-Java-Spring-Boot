@@ -1,15 +1,93 @@
 <!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml"
+<html xmlns="http://www.w3.org/1999/xhtml" 
       xmlns:th="http://www.thymeleaf.org">
-    
-    <head th:replace="~{layout/fragmentos-generales :: head}"></head>
+    <head th:replace="~{layout/fragmentos-generales :: head}">
 
-    <body class="d-flex flex-column min-vh-100">
-
+    </head>
+    <body class="bg-dark text-white d-flex flex-column min-vh-100" style="max-width: 99%"> 
         <section th:replace="~{layout/fragmentos-generales :: navbar}"></section>
         <section th:replace="~{layout/fragmentos-generales :: sidebar-admin}"></section>  
 
+        <div class="contenido-pagina bg-dark">
+            <div class="row p-3">
+                <div class="col">
+                    <h2 style="color: #a9f41e;">Rutinas</h2>
+                </div>
+                <div class="col">
+                    <form class="d-flex justify-content-end" style="color:#a9f41e;" role="search"> 
+                        <div class="input-group">
+                            <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar">
+                                <button class="btn btn-outline-secondary" style="color: #a9f41e" type="submit">Buscar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- Crear Rutina de Ejercicios-->
+        <section th:fragment="formCreate">
+            <div class="container my-5">
+                <div class="row justify-content-center">
+                    <div class="col-md-8"> 
+                        <h2 class="text-center">Crear nueva Rutina de Ejercicios</h2>
+                        <form th:action="@{/rutina/crear}" method="POST" class="border p-4 rounded">
+                            <div class="table-responsive"> 
+                                <table class="table table-sm table-bordered text-center"> 
+                                    <thead>
+                                        <tr>
+                                            <th>Nombre de Ejercicio</th>
+                                            <th>Repeticiones</th>
+                                            <th>Peso (kg)</th>
+                                            <th>Número de Series</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr th:each="index : ${#numbers.sequence(1,6)}">
+                                            <td><input type="text" class="form-control" th:name="'ejercicio_' + ${index} + '_nombre'" placeholder="Nombre del ejercicio"></td>
+                                            <td><input type="number" class="form-control" th:name="'ejercicio_' + ${index} + '_repeticiones'" placeholder="Repeticiones"></td>
+                                            <td><input type="number" class="form-control" th:name="'ejercicio_' + ${index} + '_peso'" placeholder="Peso"></td>
+                                            <td><input type="number" class="form-control" th:name="'ejercicio_' + ${index} + '_series'" placeholder="Series"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="row px-0 mx-0 my-3 justify-content-center">
+                                <button type="submit" class="btn btn-success btn-block">Agregar Rutina</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Leer Rutina de Ejercicios -->
+        <section th:fragment="leerRutina(rutina)">
+            <div class="container my-5">
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <h2 class="text-center">Rutina de Ejercicios</h2>
+                        <div class="table-responsive"> <!-- Agregué esta clase para que la tabla sea responsive -->
+                            <table class="table table-sm table-bordered text-center"> <!-- Cambié la clase a table-sm para hacerla más pequeña -->
+                                <thead>
+                                    <tr>
+                                        <th>Nombre de Ejercicio</th>
+                                        <th>Repeticiones</th>
+                                        <th>Peso (kg)</th>
+                                        <th>Número de Series</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr th:each="ejercicio : ${rutina}">
+                                        <td th:text="${ejercicio.nombre}"></td>
+                                        <td th:text="${ejercicio.repeticiones}"></td>
+                                        <td th:text="${ejercicio.peso}"></td>
+                                        <td th:text="${ejercicio.series}"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </body>
-    
 </html>
