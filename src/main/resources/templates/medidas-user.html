@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    
+    <head th:replace="~{layout/fragmentos-generales :: head}"></head>
+
+    <body class="d-flex flex-column min-vh-100">
+
+        <section th:replace="~{layout/fragmentos-generales :: navbar}"></section>
+        <section th:replace="~{layout/fragmentos-generales :: sidebar-user}"></section>  
+
+        <section class="contenido-pagina bg-dark text-light" style="min-height: 94.2vh;">
+
+            <div class="mt-3 " style="max-width: 40%">
+                <p class="border-bottom border-2 mx-5 p-3 pb-2 fs-5">Tus Medidas</p>
+            </div>
+
+            <div class="container-fluid p-5 align-items-center">
+
+                <div class="row mt-3 align-items-center">
+
+                    <div class="col-md-4 ">
+                        <h3 class="m-0">Peso (kg)</h3>
+                    </div>
+
+                    <div class="col-md-3">
+                        <input type="text" class="form-control" placeholder="Valor">
+                    </div>
+                    
+                    <div class="col-md-auto ps-0 justify-content-center ">
+                        <button class="btn btn-success"><i class="fa-solid fa-check"></i></button>
+                    </div>
+                    
+                    <div class="col-md-auto ps-0 justify-content-center align-items-start">
+                        <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
+                    </div>
+                    
+                </div>
+                    
+                <hr style="width: 65%;">
+                    
+                <div class="row mt-3 align-items-center">
+                    
+
+                    <div class="col-md-4 ">
+                        <h3 class="m-0">Grasa Corporal (%)</h3>
+                    </div>
+
+                    <div class="col-md-3">
+                        <input type="text" class="form-control" placeholder="Valor">
+                    </div>
+                    
+                    <div class="col-md-auto ps-0 justify-content-center ">
+                        <button class="btn btn-success"><i class="fa-solid fa-check"></i></button>
+                    </div>
+                    
+                    <div class="col-md-auto ps-0 justify-content-center align-items-start">
+                        <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
+                    </div>
+                    
+                </div>
+                    
+                <hr style="width: 65%;">
+                
+                <div class="row mt-3 align-items-center">
+
+                    <div class="col-md-4 ">
+                        <h3 class="m-0">Cuello (cm)</h3>
+                    </div>
+
+                    <div class="col-md-3">
+                        <input type="text" class="form-control" placeholder="Valor">
+                    </div>
+                    
+                    <div class="col-md-auto ps-0 justify-content-center ">
+                        <button class="btn btn-success"><i class="fa-solid fa-check"></i></button>
+                    </div>
+                    
+                    <div class="col-md-auto ps-0 justify-content-center align-items-start">
+                        <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
+                    </div>
+                    
+                </div>
+                    
+                <hr style="width: 65%;">
+                    
+                <div class="row mt-3 align-items-center">
+
+                    <div class="col-md-4 ">
+                        <h3 class="m-0">Hombros (cm)</h3>
+                    </div>
+
+                    <div class="col-md-3">
+                        <input type="text" class="form-control" placeholder="Valor">
+                    </div>
+                    
+                    <div class="col-md-auto ps-0 justify-content-center ">
+                        <button class="btn btn-success"><i class="fa-solid fa-check"></i></button>
+                    </div>
+                    
+                    <div class="col-md-auto ps-0 justify-content-center align-items-start">
+                        <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
+                    </div>
+                    
+                </div>
+                    
+                <hr style="width: 65%;">
+                    
+                <div class="row mt-3 align-items-center">
+
+                    <div class="col-md-4 ">
+                        <h3 class="m-0">Bicep Izquiero (cm)</h3>
+                    </div>
+
+                    <div class="col-md-3">
+                        <input type="text" class="form-control" placeholder="Valor">
+                    </div>
+                    
+                    <div class="col-md-auto ps-0 justify-content-center ">
+                        <button class="btn btn-success"><i class="fa-solid fa-check"></i></button>
+                    </div>
+                    
+                    <div class="col-md-auto ps-0 justify-content-center align-items-start">
+                        <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
+                    </div>
+                    
+                </div>
+                    
+                <hr style="width: 65%;">
+                    
+                <div class="row mt-3 align-items-center">
+
+                    <div class="col-md-4 ">
+                        <h3 class="m-0">Bicep Derecho (cm)</h3>
+                    </div>
+
+                    <div class="col-md-3">
+                        <input type="text" class="form-control" placeholder="Valor">
+                    </div>
+                    
+                    <div class="col-md-auto ps-0 justify-content-center ">
+                        <button class="btn btn-success"><i class="fa-solid fa-check"></i></button>
+                    </div>
+                    
+                    <div class="col-md-auto ps-0 justify-content-center align-items-start">
+                        <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
+                    </div>
+                    
+                </div>
+                    
+                <hr style="width: 65%;">
+                    
+                <div class="row mt-3 align-items-center">
+
+                    <div class="col-md-4 ">
+                        <h3 class="m-0">Cintura (cm)</h3>
+                    </div>
+
+                    <div class="col-md-3">
+                        <input type="text" class="form-control" placeholder="Valor">
+                    </div>
+                    
+                    <div class="col-md-auto ps-0 justify-content-center ">
+                        <button class="btn btn-success"><i class="fa-solid fa-check"></i></button>
+                    </div>
+                    
+                    <div class="col-md-auto ps-0 justify-content-center align-items-start">
+                        <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
+                    </div>
+                    
+                </div>
+                    
+                <hr style="width: 65%;">
+                    
+                <div class="row mt-3 align-items-center">
+
+                    <div class="col-md-4 ">
+                        <h3 class="m-0">Cadera (cm)</h3>
+                    </div>
+
+                    <div class="col-md-3">
+                        <input type="text" class="form-control" placeholder="Valor">
+                    </div>
+                    
+                    <div class="col-md-auto ps-0 justify-content-center ">
+                        <button class="btn btn-success"><i class="fa-solid fa-check"></i></button>
+                    </div>
+                    
+                    <div class="col-md-auto ps-0 justify-content-center align-items-start">
+                        <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
+                    </div>
+                    
+                </div>
+                    
+                <hr style="width: 65%;">
+                    
+                <div class="row mt-3 align-items-center">
+
+                    <div class="col-md-4 ">
+                        <h3 class="m-0">Muslo Izquiero (cm)</h3>
+                    </div>
+
+                    <div class="col-md-3">
+                        <input type="text" class="form-control" placeholder="Valor">
+                    </div>
+                    
+                    <div class="col-md-auto ps-0 justify-content-center ">
+                        <button class="btn btn-success"><i class="fa-solid fa-check"></i></button>
+                    </div>
+                    
+                    <div class="col-md-auto ps-0 justify-content-center align-items-start">
+                        <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
+                    </div>
+                    
+                </div>
+                    
+                <hr style="width: 65%;">
+                    
+                <div class="row mt-3 align-items-center">
+
+                    <div class="col-md-4 ">
+                        <h3 class="m-0">Muslo Derecho (cm)</h3>
+                    </div>
+
+                    <div class="col-md-3">
+                        <input type="text" class="form-control" placeholder="Valor">
+                    </div>
+                    
+                    <div class="col-md-auto ps-0 justify-content-center ">
+                        <button class="btn btn-success"><i class="fa-solid fa-check"></i></button>
+                    </div>
+                    
+                    <div class="col-md-auto ps-0 justify-content-center align-items-start">
+                        <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
+                    </div>
+                    
+                </div>
+                    
+                <hr style="width: 65%;">
+              
+            </div>
+
+        </section>
+
+    </body>
+    
+</html>
