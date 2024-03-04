@@ -8,12 +8,12 @@
     <body class="d-flex flex-column min-vh-100">
 
         <section th:replace="~{layout/fragmentos-generales :: navbar}"></section>
-        <section th:replace="~{layout/fragmentos-generales :: sidebar-user}"></section>  
+        <section th:replace="~{layout/fragmentos-generales :: sidebar-admin}"></section>  
 
         <section class="contenido-pagina bg-dark text-light" style="min-height: 94.2vh;">
 
             <div class="mt-3 " style="max-width: 50%">
-                <p class="border-bottom border-2 mx-5 mb-0 p-3 pb-2 fs-5">Modifique sus pesos previos y actuales como guste</p>
+                <p class="border-bottom border-2 mx-5 mb-0 p-3 pb-2 fs-5">Modifique los ejercicios, series y repeticiones</p>
             </div>
 
             <div class="mt-3 " style="max-width: 50%">
@@ -43,7 +43,7 @@
                                 <tr>
                                     <td>
                                         <div class="container px-0">
-                                            <a th:href="@{/rutinasUser}" class="btn btn-danger rounded-circle">
+                                            <a th:href="@{/rutinasAdmin/usuario/rutina}" class="btn btn-danger rounded-circle">
                                                 <i class="fa-solid fa-minus"></i>
                                             </a>
                                         </div>
@@ -52,17 +52,17 @@
                                     <!--Estos puede modificarlo el admin-->
                                     <form th:action="@{/guardarDatos}" method="post">
                                         <td>
-                                            <input readonly="true" type="text" class="form-control" placeholder="Series del ejercicio (No editable)">
+                                            <input type="text" class="form-control" placeholder="Ingrese las series del ejercicio">
                                         </td>
                                         <td>x</td>
                                         <td>
-                                            <input readonly="true" type="text" class="form-control" placeholder="Repeticiones del ejercicio (No editable)">
+                                            <input type="text" class="form-control" placeholder="Ingrese las repeticiones del ejercicio">
                                         </td>
                                         <td>
-                                            <input type="text" class="form-control" placeholder="Peso previo">
+                                            <input readonly="true" type="text" class="form-control" placeholder="Peso previo (No editable)">
                                         </td>
                                         <td>
-                                            <input type="text" class="form-control" placeholder="Peso actual">
+                                            <input readonly="true" type="text" class="form-control" placeholder="Peso actual (No editable)">
                                         </td>
                                         <td>
                                             <button type="submit" class="btn btn-success">Guardar</button>
@@ -73,7 +73,7 @@
                                 <tr>
                                     <td>
                                         <div class="container px-0">
-                                            <a th:href="@{/rutinasUser}" class="btn btn-danger rounded-circle">
+                                            <a th:href="@{/rutinasAdmin/usuario/rutina}" class="btn btn-danger rounded-circle">
                                                 <i class="fa-solid fa-minus"></i>
                                             </a>
                                         </div>
@@ -82,17 +82,17 @@
                                     <!--Estos puede modificarlo el admin-->
                                     <form th:action="@{/guardarDatos}" method="post">
                                         <td>
-                                            <input readonly="true" type="text" class="form-control" placeholder="Series del ejercicio (No editable)">
+                                            <input type="text" class="form-control" placeholder="Ingrese las series del ejercicio">
                                         </td>
                                         <td>x</td>
                                         <td>
-                                            <input readonly="true" type="text" class="form-control" placeholder="Repeticiones del ejercicio (No editable)">
+                                            <input type="text" class="form-control" placeholder="Ingrese las repeticiones del ejercicio">
                                         </td>
                                         <td>
-                                            <input type="text" class="form-control" placeholder="Peso previo">
+                                            <input readonly="true" type="text" class="form-control" placeholder="Peso previo (No editable)">
                                         </td>
                                         <td>
-                                            <input type="text" class="form-control" placeholder="Peso actual">
+                                            <input readonly="true" type="text" class="form-control" placeholder="Peso actual (No editable)">
                                         </td>
                                         <td>
                                             <button type="submit" class="btn btn-success">Guardar</button>
@@ -103,6 +103,10 @@
                         </table>
 
                     </div>
+                </div>
+                
+                <div class="container w-50">
+                    <a th:href="@{/rutinasAdmin/usuario/rutina/agregarEjercicio}" class="btn btn-primary fs-4 fw-bold w-100">Agregar ejercicio</a>
                 </div>
             </div>
         </section>
