@@ -5,9 +5,11 @@
     background-color: #343434;
     position: fixed;
     top: 0;
-    left: 250px;
-    padding-left: 20px;
+    right: 0; /* Mantenemos right en 0 */
+    left: 250px; /* Se suma el ancho del sidebar más un pequeño margen */
+    width: calc(100% - 250px); /* Se resta el ancho del sidebar más el margen del lado izquierdo */
 }
+
 
 .row-navbar {
     width: calc(100% - 250px);
@@ -88,5 +90,14 @@
     display: flex;
     justify-content: space-between;
     color: #a9f41e;
+}
+
+/*Codigo para posicionar contenedor de contenido principal*/
+.contenido-pagina {
+    display: flex;
+    flex-direction: column;
+    margin-top: 56px; /* Adjust according to your layout */
+    padding-left: 250px; /* Adjust according to your layout */
+    width: 100%;
 }
 

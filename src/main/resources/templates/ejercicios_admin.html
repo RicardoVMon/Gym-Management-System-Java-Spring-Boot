@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-    <head th:replace="layout/fragmentos-generales :: head"></head>
-    <body class="bg-dark text-white"> 
-        <section th:replace="layout/fragmentos-generales :: navbar"></section>
-        <section th:replace="layout/fragmentos-generales :: sidebar-admin"></section>  
+    <head th:replace="~{layout/fragmentos-generales :: head}"></head>
+    <body class="bg-dark text-white d-flex flex-column min-vh-100" style="max-width: 99%"> 
+        <section th:replace="~{layout/fragmentos-generales :: navbar}"></section>
+        <section th:replace="~{layout/fragmentos-generales :: sidebar-admin}"></section>  
 
-        <div class="container">
-            <div class="row">
+        <div class="contenido-pagina bg-dark">
+
+            <div class="row p-3">
                 <div class="col">
-                    <h2 style="color: #a9f41e;margin-top: 60px;">Ejercicios</h2>
+                    <h2 style="color: #a9f41e;">Ejercicios</h2>
                 </div>
                 <div class="col">
-                    <form class="d-flex justify-content-end" style="margin-top: 60px; margin-left: 160px;color:#a9f41e;" role="search"> 
+                    <form class="d-flex justify-content-end" style="color:#a9f41e;" role="search"> 
                         <div class="input-group">
                             <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar">
                                 <button class="btn btn-outline-secondary" style="color: #a9f41e" type="submit">Buscar</button>
@@ -20,102 +21,118 @@
                 </div>
             </div>
 
-            <!-- Tabla -->
-            <table class="table table-dark" style="margin-top: 40px;"> 
-                <thead>
-                    <tr>
-                        <th style="font-size: 25px;">D</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- EJEMPLOS de la tabla -->
-                    <tr>
-                        <td>Dominadas</td>
-                        <td>
-                             <!-- crear otro modal de editar cuando este la BD -->
-                            <a href="#" class="btn btn-primary btn-sm" onclick="mostrarModal()">
-                                <i class="fas fa-edit"></i>
-                            </a>
-                            <button onclick="eliminar(1)" class="btn btn-danger btn-sm">
-                                <i class="fas fa-trash-alt"></i>
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Desplantes</td>
-                        <td>
-                             <!-- crear otro modal de editar cuando este la BD -->
-                            <a href="#" class="btn btn-primary btn-sm" onclick="mostrarModal()">
-                                <i class="fas fa-edit"></i>
-                            </a>
-                            <button onclick="eliminar(2)" class="btn btn-danger btn-sm">
-                                <i class="fas fa-trash-alt"></i>
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Deltoide Posterior</td>
-                        <td>
-                             <!-- crear otro modal de editar cuando este la BD -->
-                           <a href="#" class="btn btn-primary btn-sm" onclick="mostrarModal()">
-                                <i class="fas fa-edit"></i>
-                            </a>
-                            <button onclick="eliminar(3)" class="btn btn-danger btn-sm">
-                                <i class="fas fa-trash-alt"></i>
-                            </button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+            <div class="container">
+                <!-- Tabla -->
+                <table class="table table-dark mt-5"> 
+                    <thead>
+                        <tr>
+                            <th class="fs-1">D</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- EJEMPLOS de la tabla -->
+                        <tr>
+                            <td>Dominadas</td>
+                            <td class="text-end">
+                                <div class="d-flex justify-content-end">
+                                    <a href="#" class="btn btn-primary btn-sm me-1" onclick="mostrarModal()">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+                                    <a onclick="eliminar(1)" class="btn btn-danger btn-sm">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </a>
+                                </div>
+                            </td>
 
-        <div class="container">
-            <!-- Tabla -->
-            <table class="table table-dark" style="margin-top: 60px;"> 
-                <thead>
-                    <tr>
-                        <th style="font-size: 25px;">S</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- EJEMPLOS de la tabla -->
-                    <tr>
-                        <td>Sentadilla bulgara</td>
-                        <td>
-                             <!-- crear otro modal de editar cuando este la BD -->
-                            <a href="#" class="btn btn-primary btn-sm" onclick="mostrarModal()">
-                                <i class="fas fa-edit"></i>
-                            </a>
-                            <button onclick="eliminar(1)" class="btn btn-danger btn-sm">
-                                <i class="fas fa-trash-alt"></i>
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Saltos</td>
-                        <td>
-                            <a href="#" class="btn btn-primary btn-sm" onclick="mostrarModal()">
-                                <i class="fas fa-edit"></i>
-                            </a>
-                            <!-- crear otro modal de editar cuando este la BD -->
-                            <button onclick="eliminar(2)" class="btn btn-danger btn-sm">
-                                <i class="fas fa-trash-alt"></i>
-                            </button>
-                        </td>
-                    </tr>               
-                </tbody>
-            </table>
+                        </tr>
+                        <tr>
+                            <td>Desplantes</td>
+                            <td class="text-end">
+                                <div class="d-flex justify-content-end">
+                                    <a href="#" class="btn btn-primary btn-sm me-1" onclick="mostrarModal()">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+                                    <a onclick="eliminar(2)" class="btn btn-danger btn-sm">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Deltoide Posterior</td>
+                            <td class="text-end">
+                                <div class="d-flex justify-content-end">
+                                    <a href="#" class="btn btn-primary btn-sm me-1" onclick="mostrarModal()">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+                                    <a onclick="eliminar(3)" class="btn btn-danger btn-sm">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </a>
+                                </div>
+                            </td>
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="container">
+                <!-- Tabla -->
+                <table class="table table-dark mt-5"> 
+                    <thead>
+                        <tr>
+                            <th class="fs-1">S</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- EJEMPLOS de la tabla -->
+                        <tr>
+                            <td>Sentadilla bulgara</td>
+                            <td class="text-end">
+                                <div class="d-flex justify-content-end">
+                                    <a href="#" class="btn btn-primary btn-sm me-1" onclick="mostrarModal()">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+                                    <button onclick="eliminar(1)" class="btn btn-danger btn-sm">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                </div>
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td>Saltos</td>
+                            <td class="text-end">
+                                <div class="d-flex justify-content-end">
+                                    <a href="#" class="btn btn-primary btn-sm me-1" onclick="mostrarModal()">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+                                    <button onclick="eliminar(2)" class="btn btn-danger btn-sm">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>               
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="container text-end my-5">
+                <a href="#" class="btn btn-outline-secondary" style="color: #a9f41e;" onclick="mostrarModal()"> 
+                    <i class="fas fa-plus"></i> Agregar Ejercicio
+                </a>
+            </div>
+
+
         </div>
 
         <!-- Aquí se colocará el mensaje para lo de eliminar -->
 
-        
+
         <!-- Botón para agregar un nuevo ejercicio -->
-        <a href="#" class="btn btn-outline-secondary" style="margin-top: 30px; margin-left: 1200px;color: #a9f41e;" onclick="mostrarModal()"> 
-            <i class="fas fa-plus"></i> 
-        </a>
+
 
         <!-- Modal -->
         <div class="modal fade" id="nuevoEjercicioModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
