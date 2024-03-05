@@ -11,16 +11,16 @@
         <section th:replace="~{layout/fragmentos-generales :: sidebar-user}"></section>  
 
         <div class="contenido-pagina bg-dark">
-            <h1 class="text-center mt-5" style="color: #a9f41e;"  th:text="#{estiramientos.titulo}"> Estiramientos</h1>
+            <h1 class="text-center mt-5" style="color: #a9f41e;"> Estiramientos</h1>
             <table class="table table-dark" style="width: 80%; margin: 0 auto;">
                 <tr>
                     <td>
-                        <a th:href="@{/estiramientos/videoMovilidad}" th:text="#{estiramientos.movilidad}">Movilidad</a>
+                        <a th:href="@{/estiramientos/videoMovilidad}">Movilidad</a>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <a th:href="@{/estiramientos/videoEstiramientos}" th:text="#{estiramientos.titulo}">Estiramientos</a>
+                        <a th:href="@{/estiramientos/videoEstiramientos}">Estiramientos</a>
                     </td>
                 </tr>
                 <tr>
@@ -30,7 +30,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <a th:href="@{/estiramientos/videoFlexibilidad}" th:text="#{estiramientos.flexibilidad}">Flexibilidad</a>
+                        <a th:href="@{/estiramientos/videoFlexibilidad}">Flexibilidad</a>
                     </td>
                 </tr>
             </table>

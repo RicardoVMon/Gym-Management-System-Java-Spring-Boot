@@ -9,13 +9,13 @@
 
             <div class="row p-3">
                 <div class="col">
-                    <h2 style="color: #a9f41e;" th:text="#{ejercicios.titulo}">Ejercicios</h2>
+                    <h2 style="color: #a9f41e;">Ejercicios</h2>
                 </div>
                 <div class="col">
                     <form class="d-flex justify-content-end" style="color:#a9f41e;" role="search"> 
                         <div class="input-group">
                             <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar">
-                                <button class="btn btn-outline-secondary" style="color: #a9f41e" type="submit" th:text="#{ejercicios.buscar}">Buscar</button>
+                                <button class="btn btn-outline-secondary" style="color: #a9f41e" type="submit">Buscar</button>
                         </div>
                     </form>
                 </div>
@@ -33,7 +33,7 @@
                     <tbody>
                         <!-- EJEMPLOS de la tabla -->
                         <tr>
-                            <td th:text="#{ejercicios.dominadas}">Dominadas</td>
+                            <td>Dominadas</td>
                             <td class="text-end">
                                 <div class="d-flex justify-content-end">
                                     <a href="#" class="btn btn-primary btn-sm me-1" onclick="mostrarModal()">
@@ -47,7 +47,7 @@
 
                         </tr>
                         <tr>
-                            <td th:text="#{ejercicios.desplantes}">Desplantes</td>
+                            <td>Desplantes</td>
                             <td class="text-end">
                                 <div class="d-flex justify-content-end">
                                     <a href="#" class="btn btn-primary btn-sm me-1" onclick="mostrarModal()">
@@ -60,7 +60,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td th:text="#{ejercicios.deltoidePosterior}">Deltoide Posterior</td>
+                            <td>Deltoide Posterior</td>
                             <td class="text-end">
                                 <div class="d-flex justify-content-end">
                                     <a href="#" class="btn btn-primary btn-sm me-1" onclick="mostrarModal()">
@@ -89,7 +89,7 @@
                     <tbody>
                         <!-- EJEMPLOS de la tabla -->
                         <tr>
-                            <td th:text="#{ejercicios.sentadillaBulgara}">Sentadilla bulgara</td>
+                            <td>Sentadilla bulgara</td>
                             <td class="text-end">
                                 <div class="d-flex justify-content-end">
                                     <a href="#" class="btn btn-primary btn-sm me-1" onclick="mostrarModal()">
@@ -103,7 +103,7 @@
 
                         </tr>
                         <tr>
-                            <td th:text="#{ejercicios.saltos}">Saltos</td>
+                            <td>Saltos</td>
                             <td class="text-end">
                                 <div class="d-flex justify-content-end">
                                     <a href="#" class="btn btn-primary btn-sm me-1" onclick="mostrarModal()">
@@ -139,16 +139,16 @@
             <div class="modal-dialog modal-dark">
                 <div class="modal-content bg-dark text-white">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel" style="color: #a9f41e" th:text="#{ejercicios.nuevoEjercicio}">Agregar Nuevo Ejercicio</h5>
+                        <h5 class="modal-title" id="exampleModalLabel" style="color: #a9f41e">Agregar Nuevo Ejercicio</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <label for="nombreEjercicio" class="form-label" style="color:white" th:text="#{ejercicios.nombre}">Nombre del ejercicio:</label>
+                        <label for="nombreEjercicio" class="form-label" style="color:white">Nombre del ejercicio:</label>
                         <input type="text" class="form-control" id="nombreEjercicio">
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" th:text="#{ejercicios.cerrar}">Cerrar</button>
-                        <button type="button" class="btn btn-success" style="color: #a9f41e" onclick="guardarEjercicio()" th:text="#{ejercicios.guardar}">Guardar</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn btn-success" style="color: #a9f41e" onclick="guardarEjercicio()">Guardar</button>
                     </div>
                 </div>
             </div>
