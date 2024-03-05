@@ -13,11 +13,11 @@
         <section class="contenido-pagina bg-dark text-light" style="min-height: 94.2vh;">
 
             <div class="mt-3 " style="max-width: 50%">
-                <p class="border-bottom border-2 mx-5 mb-0 p-3 pb-2 fs-5">Modifique los ejercicios, series y repeticiones</p>
+                <p class="border-bottom border-2 mx-5 mb-0 p-3 pb-2 fs-5" th:text="#{rutinasUsuarioRutina.titulo}">Modifique los ejercicios, series y repeticiones</p>
             </div>
 
             <div class="mt-3 " style="max-width: 50%">
-                <p class="fs-1 fw-bold mx-5">Nombre de Rutina</p>
+                <p class="fs-1 fw-bold mx-5" th:text="#{rutinasUsuarioRutina.nombreRutina}">Nombre de Rutina</p>
             </div>
 
             <div class="container-fluid p-5 pt-1">
@@ -25,16 +25,16 @@
                 <!--Cada row va a ser un ejercicio, que contiene una tabla de series dentro-->
                 <div class="row">
                     <div class="col mb-4">
-                        <p class="fw-bold fs-3">Nombre de Ejercicio</p>
+                        <p class="fw-bold fs-3" th:text="#{rutinasUsuarioRutina.nombreEjercicio}">Nombre de Ejercicio</p>
                         <table class="table text-light text-center">
                             <thead class="bg-light text-dark">
                                 <tr>
                                     <th></th>
-                                    <th>Series</th>
+                                    <th th:text="#{rutinasUsuarioRutina.series}">Series</th>
                                     <th></th>
-                                    <th>Repeticiones</th>
-                                    <th>Peso Previo</th>
-                                    <th>Peso actual</th>
+                                    <th th:text="#{rutinasUsuarioRutina.repeticiones}">Repeticiones</th>
+                                    <th th:text="#{rutinasUsuarioRutina.pesoPrevio}">Peso Previo</th>
+                                    <th th:text="#{rutinasUsuarioRutina.pesoActual}">Peso actual</th>
                                     <th></th>
                                 </tr>
                             </thead>
@@ -52,17 +52,17 @@
                                     <!--Estos puede modificarlo el admin-->
                                     <form th:action="@{/admin/rutinas/usuario/rutina/guardar}" method="post">
                                         <td>
-                                            <input type="text" class="form-control" placeholder="Ingrese las series del ejercicio">
+                                            <input type="text" class="form-control" th:placeholder="#{rutinasUsuarioRutina.ingreseSeriesEjercicio}">
                                         </td>
                                         <td>x</td>
                                         <td>
-                                            <input type="text" class="form-control" placeholder="Ingrese las repeticiones del ejercicio">
+                                            <input type="text" class="form-control" th:placeholder="#{rutinasUsuarioRutina.ingreseRepeticionesEjercicio}">
                                         </td>
                                         <td>
-                                            <input readonly="true" type="text" class="form-control" placeholder="Peso previo (No editable)">
+                                            <input readonly="true" type="text" class="form-control" th:placeholder="#{rutinasUsuarioRutina.pesoPrevio}">
                                         </td>
                                         <td>
-                                            <input readonly="true" type="text" class="form-control" placeholder="Peso actual (No editable)">
+                                            <input readonly="true" type="text" class="form-control" th:placeholder="#{rutinasUsuarioRutina.pesoActual}">
                                         </td>
                                         <td>
                                             <button type="submit" class="btn btn-success"><i class="fa-solid fa-check"></i></button>
@@ -82,17 +82,17 @@
                                     <!--Estos puede modificarlo el admin-->
                                     <form th:action="@{/admin/rutinas/usuario/rutina/guardar}" method="post">
                                         <td>
-                                            <input type="text" class="form-control" placeholder="Ingrese las series del ejercicio">
+                                            <input type="text" class="form-control" th:placeholder="#{rutinasUsuarioRutina.ingreseSeriesEjercicio}">
                                         </td>
                                         <td>x</td>
                                         <td>
-                                            <input type="text" class="form-control" placeholder="Ingrese las repeticiones del ejercicio">
+                                            <input type="text" class="form-control" th:placeholder="#{rutinasUsuarioRutina.ingreseRepeticionesEjercicio}">
                                         </td>
                                         <td>
-                                            <input readonly="true" type="text" class="form-control" placeholder="Peso previo (No editable)">
+                                            <input readonly="true" type="text" class="form-control" th:placeholder="#{rutinasUsuarioRutina.pesoPrevio}">
                                         </td>
                                         <td>
-                                            <input readonly="true" type="text" class="form-control" placeholder="Peso actual (No editable)">
+                                            <input readonly="true" type="text" class="form-control" th:placeholder="#{rutinasUsuarioRutina.pesoActual}">
                                         </td>
                                         <td>
                                             <button type="submit" class="btn btn-success"><i class="fa-solid fa-check"></i></button>
@@ -106,7 +106,7 @@
                 </div>
                 
                 <div class="container w-50">
-                    <a th:href="@{/admin/rutinas/usuario/rutina/agregar}" class="btn btn-primary fs-4 fw-bold w-100">Agregar ejercicio</a>
+                    <a th:href="@{/admin/rutinas/usuario/rutina/agregar}" class="btn btn-primary fs-4 fw-bold w-100" th:text="#{rutinasUsuarioRutina.agregarEjercicio}">Agregar ejercicio</a>
                 </div>
             </div>
         </section>
