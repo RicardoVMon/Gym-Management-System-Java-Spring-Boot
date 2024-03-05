@@ -57,11 +57,20 @@
 
                 <!-- Funcionalidades Específicas al Admin -->
                 <div class="sidebar-links">
-                    <a th:href="@{/admin/rutinas}" class="card" th:text="#{generales.rutinas}"><i class="fa-regular fa-calendar"></i> Rutinas</a>
+                    <a th:href="@{/admin/rutinas}" class="card">
+                        <i class="fa-regular fa-calendar"></i>
+                        <span th:text="#{generales.rutinas}">Rutinas</span>
+                    </a>
 
-                    <a th:href="@{/admin/usuarios}" class="card" th:text="#{generales.usuarios}"><i class="fa-solid fa-users"></i> Usuarios</a>
+                    <a th:href="@{/admin/usuarios}" class="card">
+                        <i class="fa-solid fa-users"></i>
+                        <span th:text="#{generales.usuarios}">Usuarios</span>
+                    </a>
                     
-                    <a th:href="@{/admin/ejercicios}" class="card" th:text="#{generales.ejercicios}"><i class="fas fa-dumbbell"></i>Ejercicios</a>
+                    <a th:href="@{/admin/ejercicios}" class="card">
+                        <i class="fas fa-dumbbell"></i>
+                        <span th:text="#{generales.ejercicios}">Ejercicios</span>
+                    </a>
                 </div>
 
                 <div class="sidebar-footer">
