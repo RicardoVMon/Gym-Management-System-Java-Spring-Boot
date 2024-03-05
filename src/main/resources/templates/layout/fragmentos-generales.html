@@ -97,11 +97,20 @@
 
                 <!-- Funcionalidades Específicas al Usuario -->
                 <div class="sidebar-links">
-                    <a th:href="@{/user/rutinas}" class="card" th:text="#{generales.misrutinas}"><i class="fas fa-dumbbell"></i> Mis Rutinas</a>
+                    <a th:href="@{/user/rutinas}" class="card">
+                        <i class="fas fa-dumbbell"></i>
+                        <span th:text="#{generales.misrutinas}">Mis Rutinas</span>
+                    </a>
 
-                    <a th:href="@{/user/estiramientos}" class="card" th:text="#{generales.estiramientos}"><i class="fa-solid fa-child-reaching"></i> Estiramientos</a>
+                    <a th:href="@{/user/estiramientos}" class="card">
+                        <i class="fa-solid fa-child-reaching"></i>
+                        <span th:text="#{generales.estiramientos}">Estiramientos</span>
+                    </a>
 
-                    <a th:href="@{/user/medidas}" class="card" th:text="#{generales.mismedidas}"><i class="fas fa-ruler"></i> Mis Medidas</a>
+                    <a th:href="@{/user/medidas}" class="card">
+                        <i class="fas fa-ruler"></i>
+                        <span th:text="#{generales.mismedidas}">Mis Medidas</span>
+                    </a>
                 </div>
 
                 <div class="sidebar-footer">
