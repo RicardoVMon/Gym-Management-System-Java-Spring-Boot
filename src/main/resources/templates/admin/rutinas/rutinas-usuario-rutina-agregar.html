@@ -9,13 +9,13 @@
 
             <div class="row p-3">
                 <div class="col">
-                    <h2 style="color: #a9f41e;">Ejercicios</h2>
+                    <h2 style="color: #a9f41e;" th:text="#{usuarioRutinaAgregar.titulo}">Ejercicios</h2>
                 </div>
                 <div class="col">
                     <form class="d-flex justify-content-end" style="color:#a9f41e;" role="search"> 
                         <div class="input-group">
-                            <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar">
-                                <button class="btn btn-outline-secondary" style="color: #a9f41e" type="submit">Buscar</button>
+                            <input class="form-control me-2" type="search" th:placeholder="#{usuarioRutinaAgregar.buscar}" aria-label="Buscar">
+                                <button class="btn btn-outline-secondary" style="color: #a9f41e" type="submit" th:text="#{usuarioRutinaAgregar.buscar}">Buscar</button>
                         </div>
                     </form>
                 </div>
@@ -33,32 +33,35 @@
                     <tbody>
                         <!-- EJEMPLOS de la tabla -->
                         <tr>
-                            <td>Dominadas</td>
+                            <td th:text="#{ejercicios.dominadas}">Dominadas</td>
                             <td class="text-end">
                                 <div class="d-flex justify-content-end">
                                     <a th:href="@{/admin/rutinas/usuario/rutina}" class="btn btn-success btn-sm me-1" onclick="mostrarModal()">
-                                        <i class="fa-solid fa-plus"></i> Agregar a rutina
+                                        <i class="fa-solid fa-plus"></i> 
+                                        <span th:text="#{usuarioRutinaAgregar.agregarRutina}">Agregar a rutina</span>
                                     </a>
                                 </div>
                             </td>
 
                         </tr>
                         <tr>
-                            <td>Desplantes</td>
+                            <td th:text="#{ejercicios.desplantes}">Desplantes</td>
                             <td class="text-end">
                                 <div class="d-flex justify-content-end">
                                     <a th:href="@{/admin/rutinas/usuario/rutina}" class="btn btn-success btn-sm me-1" onclick="mostrarModal()">
-                                        <i class="fa-solid fa-plus"></i> Agregar a rutina
+                                        <i class="fa-solid fa-plus"></i>
+                                        <span th:text="#{usuarioRutinaAgregar.agregarRutina}">Agregar a rutina</span>
                                     </a>
                                 </div>
                             </td>
                         </tr>
                         <tr>
-                            <td>Deltoide Posterior</td>
+                            <td th:text="#{ejercicios.deltoidePosterior}">Deltoide Posterior</td>
                             <td class="text-end">
                                 <div class="d-flex justify-content-end">
                                     <a th:href="@{/admin/rutinas/usuario/rutina}" class="btn btn-success btn-sm me-1" onclick="mostrarModal()">
-                                        <i class="fa-solid fa-plus"></i> Agregar a rutina
+                                        <i class="fa-solid fa-plus"></i> 
+                                        <span th:text="#{usuarioRutinaAgregar.agregarRutina}">Agregar a rutina</span>
                                     </a>
                                 </div>
                             </td>
@@ -80,22 +83,24 @@
                     <tbody>
                         <!-- EJEMPLOS de la tabla -->
                         <tr>
-                            <td>Sentadilla bulgara</td>
+                            <td th:text="#{ejercicios.sentadillaBulgara}">Sentadilla bulgara</td>
                             <td class="text-end">
                                 <div class="d-flex justify-content-end">
                                     <a th:href="@{/admin/rutinas/usuario/rutina}" class="btn btn-success btn-sm me-1" onclick="mostrarModal()">
-                                        <i class="fa-solid fa-plus"></i> Agregar a rutina
+                                        <i class="fa-solid fa-plus"></i> 
+                                        <span th:text="#{usuarioRutinaAgregar.agregarRutina}">Agregar a rutina</span>
                                     </a>
                                 </div>
                             </td>
 
                         </tr>
                         <tr>
-                            <td>Saltos</td>
+                            <td th:text="#{ejercicios.saltos}">Saltos</td>
                             <td class="text-end">
                                 <div class="d-flex justify-content-end">
                                     <a th:href="@{/admin/rutinas/usuario/rutina}" class="btn btn-success btn-sm me-1" onclick="mostrarModal()">
-                                        <i class="fa-solid fa-plus"></i> Agregar a rutina
+                                        <i class="fa-solid fa-plus"></i> 
+                                        <span th:text="#{usuarioRutinaAgregar.agregarRutina}">Agregar a rutina</span>
                                     </a>
                                 </div>
                             </td>
@@ -106,7 +111,8 @@
 
             <div class="container text-end my-5">
                 <a href="#" class="btn btn-outline-secondary" style="color: #a9f41e;" onclick="mostrarModal()"> 
-                    <i class="fas fa-plus"></i> Agregar Ejercicio
+                    <i class="fas fa-plus"></i> 
+                    <span th:text="#{usuarioRutinaAgregar.agregarEjercicio}">Agregar Ejercicio</span>
                 </a>
             </div>
 
@@ -118,16 +124,16 @@
             <div class="modal-dialog modal-dark">
                 <div class="modal-content bg-dark text-white">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel" style="color: #a9f41e">Agregar Nuevo Ejercicio</h5>
+                        <h5 class="modal-title" id="exampleModalLabel" style="color: #a9f41e" th:text="#{usuarioRutinaAgregar.agregarNuevoEjercicio}">Agregar Nuevo Ejercicio</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <label for="nombreEjercicio" class="form-label" style="color:white">Nombre del ejercicio:</label>
+                        <label for="nombreEjercicio" class="form-label" style="color:white" th:text="#{usuarioRutinaAgregar.nombreEjercicio}">Nombre del ejercicio:</label>
                         <input type="text" class="form-control" id="nombreEjercicio">
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                        <button type="button" class="btn btn-success" style="color: #a9f41e" onclick="guardarEjercicio()">Guardar</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" th:text="#{usuarioRutinaAgregar.cerrar}">Cerrar</button>
+                        <button type="button" class="btn btn-success" style="color: #a9f41e" onclick="guardarEjercicio()" th:text="#{usuarioRutinaAgregar.guardar}">Guardar</button>
                     </div>
                 </div>
             </div>
