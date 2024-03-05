@@ -6,27 +6,30 @@
     <head th:replace="~{layout/fragmentos-generales :: head}"></head>
 
     <body class="bg-dark text-white">
+        
         <section th:replace="~{layout/fragmentos-generales :: navbar}"></section>
         <section th:replace="~{layout/fragmentos-generales :: sidebar-user}"></section> 
 
 
         <div class="contenido-pagina bg-dark d-flex flex-column justify-content-center">
             <div class="p-3">
-                <a type="button" class="btn btn-outline-secondary" style="color:#a9f41e" th:href="@{/estiramientos/inicio}">
+                <a type="button" class="btn btn-outline-secondary" style="color:#a9f41e" th:href="@{/user/estiramientos}">
                     <i class="fas fa-arrow-left" style="color:#a9f41e"></i> 
                 </a>
             </div>
-            <h1 class="text-center mt-5" style="color: #a9f41e;"> Video Movilidad</h1>
+            <h1 class="text-center mt-5" style="color: #a9f41e;">Video Estiramientos</h1>
             <div class="container text-center">
-                <iframe width="800" height="450" src="https://www.youtube.com/embed/5aAkskctYGY?si=ItJITk-HxpArosNZ"
+                <iframe width="800" height="450" src="https://www.youtube.com/embed/YQQfhILVR7c?si=xl2FQfWGdVEqi4l0"
                         title="YouTube video player" 
                         frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; 
                         picture-in-picture; web-share" allowfullscreen></iframe>
             </div>
             <div style="max-width: 800px; margin: 0 auto;">
-                <p class="fs-5">Prepara tu cuerpo con movilidad antes del ejercicio. 
-                    ¡Optimiza tu rendimiento y reduce el riesgo de lesiones con estos breves 
-                    ejercicios!</p>
+                <p class="fs-5">Los estiramientos después del 
+                    entrenamiento son esenciales para mantener la flexibilidad y
+                    prevenir lesiones. Dedica tiempo a estirar tus músculos para
+                    mejorar la recuperación y mantener tu cuerpo en óptimas
+                    condiciones.</p>
             </div>
 
         </div>

@@ -8,8 +8,9 @@
     right: 0; /* Mantenemos right en 0 */
     left: 250px; /* Se suma el ancho del sidebar más un pequeño margen */
     width: calc(100% - 250px); /* Se resta el ancho del sidebar más el margen del lado izquierdo */
+    border-bottom-style: solid;
+    border-bottom-color: #a9f41e;
 }
-
 
 .row-navbar {
     width: calc(100% - 250px);
@@ -56,7 +57,6 @@
 /*Estilos para el encabezado*/
 .sidebar-header {
     color: #a9f41e;
-
 }
 
 /*Estilos para los separadores*/
@@ -91,13 +91,3 @@
     justify-content: space-between;
     color: #a9f41e;
 }
-
-/*Codigo para posicionar contenedor de contenido principal*/
-.contenido-pagina {
-    display: flex;
-    flex-direction: column;
-    margin-top: 56px; /* Adjust according to your layout */
-    padding-left: 250px; /* Adjust according to your layout */
-    width: 100%;
-}
-

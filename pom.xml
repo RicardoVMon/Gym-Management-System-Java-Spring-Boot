@@ -8,11 +8,11 @@
         <version>3.2.2</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.draft</groupId>
+    <groupId>com.gymapp</groupId>
     <artifactId>gymapp</artifactId>
-    <version>draft</version>
+    <version>1</version>
     <name>GymApp</name>
-    <description>Draft</description>
+    <description>Proyecto final del grupo #4 para el curso de Desarrollo de Aplicaciones Web y Patrones.</description>
     <properties>
         <java.version>20</java.version>
     </properties>

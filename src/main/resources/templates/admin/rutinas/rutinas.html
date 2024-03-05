@@ -5,7 +5,7 @@
     
     <head th:replace="~{layout/fragmentos-generales :: head}"></head>
 
-    <body class="d-flex flex-column min-vh-100">
+    <body class="bg-dark text-white d-flex flex-column min-vh-100">
 
         <section th:replace="~{layout/fragmentos-generales :: navbar}"></section>
         <section th:replace="~{layout/fragmentos-generales :: sidebar-admin}"></section>  
@@ -35,7 +35,7 @@
                                     <input type="text" class="form-control" placeholder="Ejemplo" readonly />
                                 </div>
                                 <div class="container px-0">
-                                    <a th:href="@{/rutinasAdmin/usuario}" class="btn btn-primary w-100">Comenzar</a>
+                                    <a th:href="@{/admin/rutinas/usuario}" class="btn btn-primary w-100">Comenzar</a>
                                 </div>
                             </form>
                         </div>
