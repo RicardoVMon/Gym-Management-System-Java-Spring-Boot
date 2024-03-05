@@ -9,7 +9,7 @@
     <section class="contenido-pagina bg-dark text-light" style="min-height: 94.2vh;">
 
         <div class="mt-3 " style="max-width: 40%">
-            <p class="border-bottom border-2 mx-5 p-3 pb-2 fs-5">Seleccione un usuario para eliminar</p>
+            <p class="border-bottom border-2 mx-5 p-3 pb-2 fs-5"th:text="#{usuariosAdmin.usuarioEliminar}">Seleccione un usuario para eliminar</p>
         </div>
 
         <div class="container-fluid p-5">
@@ -17,21 +17,21 @@
             <div class="row">
                 <div class="col-md-3 mb-4">
                     <div class="card text-dark rounded-0 ">
-                        <div class="card-header h5 text-center p-2">
+                        <div class="card-header h5 text-center p-2"th:text="#{usuariosAdmin.nombreUsuario}">
                             Nombre de Usuario
                         </div>
                         <div class="card-body">
                             <form class="p-2">
                                 <div class="form-group mb-2">
-                                    <label>Correo Electrónico</label>
+                                    <label th:text="#{usuariosAdmin.correo}">Correo Electrónico</label>
                                     <input type="text" class="form-control" placeholder="Correo@gmail.com" readonly />
                                 </div>
                                 <div class="form-group mb-2 pb-4 border-bottom border-2">
-                                    <label>Género</label>
+                                    <label th:text="#{usuariosAdmin.genero}">Género</label>
                                     <input type="text" class="form-control" placeholder="Ejemplo" readonly />
                                 </div>
                                 <div class="container px-0">
-                                    <button type="button" class="btn btn-danger w-100">Eliminar</button>
+                                    <button type="button" class="btn btn-danger w-100" th:text="#{usuariosAdmin.eliminar}">Eliminar</button>
                                 </div>
                             </form>
                         </div>
@@ -40,21 +40,21 @@
 
                 <div class="col-md-3 mb-4">
                     <div class="card text-dark rounded-0">
-                        <div class="card-header h5 text-center p-2">
+                        <div class="card-header h5 text-center p-2" th:text="#{usuariosAdmin.nombreUsuario}">
                             Nombre de Usuario 2
                         </div>
                         <div class="card-body">
                             <form class="p-2">
                                 <div class="form-group mb-2">
-                                    <label>Correo Electrónico</label>
+                                    <label th:text="#{usuariosAdmin.correo}">Correo Electrónico</label>
                                     <input type="text" class="form-control" placeholder="Correo2@gmail.com" readonly />
                                 </div>
                                 <div class="form-group mb-2 pb-4 border-bottom border-2">
-                                    <label>Género</label>
+                                    <label th:text="#{usuariosAdmin.genero}">Género</label>
                                     <input type="text" class="form-control" placeholder="Ejemplo2" readonly />
                                 </div>
                                 <div class="container px-0">
-                                    <button type="button" class="btn btn-danger w-100">Eliminar</button>
+                                    <button type="button" class="btn btn-danger w-100" th:text="#{usuariosAdmin.eliminar}">Eliminar</button>
                                 </div>
                             </form>
                         </div>
