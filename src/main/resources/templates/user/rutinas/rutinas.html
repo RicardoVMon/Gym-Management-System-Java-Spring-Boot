@@ -52,17 +52,17 @@
                                     <!--Estos puede modificarlo el admin-->
                                     <form th:action="@{/user/rutinas/guardar}" method="post">
                                         <td>
-                                            <input readonly="true" type="text" class="form-control" placeholder="Series del ejercicio (No editable)">
+                                            <input readonly="true" type="text" class="form-control" th:placeholder="#{rutinasUser.seriesEjercicio}">
                                         </td>
                                         <td>x</td>
                                         <td>
-                                            <input readonly="true" type="text" class="form-control" placeholder="Repeticiones del ejercicio (No editable)">
+                                            <input readonly="true" type="text" class="form-control" th:placeholder="#{rutinasUser.repeticionesEjercicio}">
                                         </td>
                                         <td>
-                                            <input type="text" class="form-control" placeholder="Peso previo">
+                                            <input type="text" class="form-control" th:placeholder="#{rutinasUser.pesoPrevio}">
                                         </td>
                                         <td>
-                                            <input type="text" class="form-control" placeholder="Peso actual">
+                                            <input type="text" class="form-control" th:placeholder="#{rutinasUser.pesoActual}">
                                         </td>
                                         <td>
                                             <button type="submit" class="btn btn-success" th:text="#{rutinasUser.guardar}"><i class="fa-solid fa-check"></i></button>
@@ -82,17 +82,17 @@
                                     <!--Estos puede modificarlo el admin-->
                                     <form th:action="@{/user/rutinas/guardar}" method="post">
                                         <td>
-                                            <input readonly="true" type="text" class="form-control" placeholder="Series del ejercicio (No editable)">
+                                            <input readonly="true" type="text" class="form-control" th:placeholder="#{rutinasUser.seriesEjercicio}">
                                         </td>
                                         <td>x</td>
                                         <td>
-                                            <input readonly="true" type="text" class="form-control" placeholder="Repeticiones del ejercicio (No editable)">
+                                            <input readonly="true" type="text" class="form-control" th:placeholder="#{rutinasUser.repeticionesEjercicio}">
                                         </td>
                                         <td>
-                                            <input type="text" class="form-control" placeholder="Peso previo">
+                                            <input type="text" class="form-control" th:placeholder="#{rutinasUser.pesoPrevio}">
                                         </td>
                                         <td>
-                                            <input type="text" class="form-control" placeholder="Peso actual">
+                                            <input type="text" class="form-control" th:placeholder="#{rutinasUser.pesoActual}">
                                         </td>
                                         <td>
                                             <button type="submit" class="btn btn-success" th:text="#{rutinasUser.guardar}"><i class="fa-solid fa-check"></i></button>
