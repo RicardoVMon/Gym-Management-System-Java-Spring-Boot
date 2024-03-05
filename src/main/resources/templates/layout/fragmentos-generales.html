@@ -29,9 +29,8 @@
                             Idioma
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" th:href="@{/(lang=es)}">Idioma 1</a></li>
-                            <li><a class="dropdown-item" th:href="@{/(lang=es)}">Idioma 2</a></li>
-                            <li><a class="dropdown-item" th:href="@{/(lang=en)}">Idioma 3</a></li>
+                            <li><a class="dropdown-item" th:href="@{/(lang=es)}" th:text="#{generales.idiomaEsp}">Español</a></li>
+                            <li><a class="dropdown-item" th:href="@{/(lang=en)}" th:text="#{generales.idiomaIng}">Inglés</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
