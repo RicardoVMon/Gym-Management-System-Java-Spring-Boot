@@ -14,7 +14,7 @@
                 <div class="col">
                     <form class="d-flex justify-content-end" style="color:#a9f41e;" role="search"> 
                         <div class="input-group">
-                            <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar">
+                            <input class="form-control me-2" type="search" th:placeholder="#{ejercicios.buscar}" aria-label="Buscar">
                                 <button class="btn btn-outline-secondary" style="color: #a9f41e" type="submit" th:text="#{ejercicios.buscar}">Buscar</button>
                         </div>
                     </form>
@@ -121,7 +121,8 @@
 
             <div class="container text-end my-5">
                 <a href="#" class="btn btn-outline-secondary" style="color: #a9f41e;" onclick="mostrarModal()"> 
-                    <i class="fas fa-plus"></i> Agregar Ejercicio
+                    <i class="fas fa-plus"></i>
+                    <span th:text="#{ejercicios.nuevoEjercicio}"> Agregar Ejercicio</span>
                 </a>
             </div>
 
