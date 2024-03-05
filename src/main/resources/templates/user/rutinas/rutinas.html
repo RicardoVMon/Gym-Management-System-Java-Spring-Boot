@@ -5,12 +5,12 @@
 
     <head th:replace="~{layout/fragmentos-generales :: head}"></head>
 
-    <body class="d-flex flex-column min-vh-100">
+    <body class="bg-dark text-white d-flex flex-column min-vh-100">
 
         <section th:replace="~{layout/fragmentos-generales :: navbar}"></section>
         <section th:replace="~{layout/fragmentos-generales :: sidebar-user}"></section>  
 
-        <section class="contenido-pagina bg-dark text-light" style="min-height: 94.2vh;">
+        <section class="contenido-pagina bg-dark text-light" style="min-height: 94.2vh; background-color: #343434;">
 
             <div class="mt-3 " style="max-width: 50%">
                 <p class="border-bottom border-2 mx-5 mb-0 p-3 pb-2 fs-5">Modifique sus pesos previos y actuales como guste</p>
@@ -43,14 +43,14 @@
                                 <tr>
                                     <td>
                                         <div class="container px-0">
-                                            <a th:href="@{/rutinasUser}" class="btn btn-danger rounded-circle">
+                                            <a th:href="@{/user/rutinas}" class="btn btn-danger rounded-circle">
                                                 <i class="fa-solid fa-minus"></i>
                                             </a>
                                         </div>
                                     </td>
 
                                     <!--Estos puede modificarlo el admin-->
-                                    <form th:action="@{/guardarDatos}" method="post">
+                                    <form th:action="@{/user/rutinas/guardar}" method="post">
                                         <td>
                                             <input readonly="true" type="text" class="form-control" placeholder="Series del ejercicio (No editable)">
                                         </td>
@@ -65,7 +65,7 @@
                                             <input type="text" class="form-control" placeholder="Peso actual">
                                         </td>
                                         <td>
-                                            <button type="submit" class="btn btn-success">Guardar</button>
+                                            <button type="submit" class="btn btn-success"><i class="fa-solid fa-check"></i></button>
                                         </td>
                                     </form>
 
@@ -73,14 +73,14 @@
                                 <tr>
                                     <td>
                                         <div class="container px-0">
-                                            <a th:href="@{/rutinasUser}" class="btn btn-danger rounded-circle">
+                                            <a th:href="@{/user/rutinas}" class="btn btn-danger rounded-circle">
                                                 <i class="fa-solid fa-minus"></i>
                                             </a>
                                         </div>
                                     </td>
 
                                     <!--Estos puede modificarlo el admin-->
-                                    <form th:action="@{/guardarDatos}" method="post">
+                                    <form th:action="@{/user/rutinas/guardar}" method="post">
                                         <td>
                                             <input readonly="true" type="text" class="form-control" placeholder="Series del ejercicio (No editable)">
                                         </td>
@@ -95,7 +95,7 @@
                                             <input type="text" class="form-control" placeholder="Peso actual">
                                         </td>
                                         <td>
-                                            <button type="submit" class="btn btn-success">Guardar</button>
+                                            <button type="submit" class="btn btn-success"><i class="fa-solid fa-check"></i></button>
                                         </td>
                                     </form>
                                 </tr>

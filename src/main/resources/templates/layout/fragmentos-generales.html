@@ -12,6 +12,8 @@
         <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
         <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
         <link th:href="@{/static/css/estilosBarras.css}" rel="stylesheet" type="text/css"/>
+        <link th:href="@{/static/css/estilosGenerales.css}" rel="stylesheet" type="text/css"/>
+        
     </head>
 
     <body>
@@ -56,11 +58,11 @@
 
                 <!-- Funcionalidades Específicas al Admin -->
                 <div class="sidebar-links">
-                    <a th:href="@{/rutinasAdmin}" class="card"><i class="fa-regular fa-calendar"></i> Rutinas</a>
+                    <a th:href="@{/admin/rutinas}" class="card"><i class="fa-regular fa-calendar"></i> Rutinas</a>
 
-                    <a th:href="@{/usuariosAdmin}" class="card"><i class="fa-solid fa-users"></i> Usuarios</a>
+                    <a th:href="@{/admin/usuarios}" class="card"><i class="fa-solid fa-users"></i> Usuarios</a>
 
-                    <a th:href="@{/ejerciciosAdmin}" class="card"><i class="fas fa-dumbbell"></i>Ejercicios</a>
+                    <a th:href="@{/admin/ejercicios}" class="card"><i class="fas fa-dumbbell"></i>Ejercicios</a>
                 </div>
 
                 <div class="sidebar-footer">
@@ -87,11 +89,11 @@
 
                 <!-- Funcionalidades Específicas al Usuario -->
                 <div class="sidebar-links">
-                    <a th:href="@{/rutinasUser}" class="card"><i class="fas fa-dumbbell"></i> Mis Rutinas</a>
+                    <a th:href="@{/user/rutinas}" class="card"><i class="fas fa-dumbbell"></i> Mis Rutinas</a>
 
-                    <a th:href="@{/estiramientos/inicio}" class="card"><i class="fa-solid fa-child-reaching"></i>Estiramientos</a>
+                    <a th:href="@{/user/estiramientos}" class="card"><i class="fa-solid fa-child-reaching"></i>Estiramientos</a>
 
-                    <a th:href="@{/medidas-user}" class="card"><i class="fas fa-ruler"></i> Mis Medidas</a>
+                    <a th:href="@{/user/medidas}" class="card"><i class="fas fa-ruler"></i> Mis Medidas</a>
                 </div>
 
                 <div class="sidebar-footer">

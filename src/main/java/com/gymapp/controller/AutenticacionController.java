@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class AutenticacionController {
-
     
     @GetMapping("/")
     public String login(Model model) {

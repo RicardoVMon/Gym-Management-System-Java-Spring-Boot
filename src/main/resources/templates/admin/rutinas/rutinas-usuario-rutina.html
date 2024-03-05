@@ -5,7 +5,7 @@
 
     <head th:replace="~{layout/fragmentos-generales :: head}"></head>
 
-    <body class="d-flex flex-column min-vh-100">
+    <body class="bg-dark text-white d-flex flex-column min-vh-100">
 
         <section th:replace="~{layout/fragmentos-generales :: navbar}"></section>
         <section th:replace="~{layout/fragmentos-generales :: sidebar-admin}"></section>  
@@ -43,14 +43,14 @@
                                 <tr>
                                     <td>
                                         <div class="container px-0">
-                                            <a th:href="@{/rutinasAdmin/usuario/rutina}" class="btn btn-danger rounded-circle">
+                                            <a th:href="@{/admin/rutinas/usuario/rutina}" class="btn btn-danger rounded-circle">
                                                 <i class="fa-solid fa-minus"></i>
                                             </a>
                                         </div>
                                     </td>
 
                                     <!--Estos puede modificarlo el admin-->
-                                    <form th:action="@{/guardarDatos}" method="post">
+                                    <form th:action="@{/admin/rutinas/usuario/rutina/guardar}" method="post">
                                         <td>
                                             <input type="text" class="form-control" placeholder="Ingrese las series del ejercicio">
                                         </td>
@@ -65,7 +65,7 @@
                                             <input readonly="true" type="text" class="form-control" placeholder="Peso actual (No editable)">
                                         </td>
                                         <td>
-                                            <button type="submit" class="btn btn-success">Guardar</button>
+                                            <button type="submit" class="btn btn-success"><i class="fa-solid fa-check"></i></button>
                                         </td>
                                     </form>
 
@@ -73,14 +73,14 @@
                                 <tr>
                                     <td>
                                         <div class="container px-0">
-                                            <a th:href="@{/rutinasAdmin/usuario/rutina}" class="btn btn-danger rounded-circle">
+                                            <a th:href="@{/admin/rutinas/usuario/rutina}" class="btn btn-danger rounded-circle">
                                                 <i class="fa-solid fa-minus"></i>
                                             </a>
                                         </div>
                                     </td>
 
                                     <!--Estos puede modificarlo el admin-->
-                                    <form th:action="@{/guardarDatos}" method="post">
+                                    <form th:action="@{/admin/rutinas/usuario/rutina/guardar}" method="post">
                                         <td>
                                             <input type="text" class="form-control" placeholder="Ingrese las series del ejercicio">
                                         </td>
@@ -95,7 +95,7 @@
                                             <input readonly="true" type="text" class="form-control" placeholder="Peso actual (No editable)">
                                         </td>
                                         <td>
-                                            <button type="submit" class="btn btn-success">Guardar</button>
+                                            <button type="submit" class="btn btn-success"><i class="fa-solid fa-check"></i></button>
                                         </td>
                                     </form>
                                 </tr>
@@ -106,7 +106,7 @@
                 </div>
                 
                 <div class="container w-50">
-                    <a th:href="@{/rutinasAdmin/usuario/rutina/agregarEjercicio}" class="btn btn-primary fs-4 fw-bold w-100">Agregar ejercicio</a>
+                    <a th:href="@{/admin/rutinas/usuario/rutina/agregar}" class="btn btn-primary fs-4 fw-bold w-100">Agregar ejercicio</a>
                 </div>
             </div>
         </section>

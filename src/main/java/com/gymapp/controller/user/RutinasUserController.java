@@ -1,16 +1,16 @@
-package com.gymapp.controller;
+package com.gymapp.controller.user;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
+@RequestMapping("user")
 public class RutinasUserController {
     
-    @RequestMapping("/rutinasUser")
+    @RequestMapping("/rutinas")
     public String rutinasUser(Model model) {
-        model.addAttribute("attribute", "value");
-        return "rutinas-user";
+        return "user/rutinas/rutinas";
     }
     
 }
