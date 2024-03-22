@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+    <head th:replace="~{layout/fragmentos-generales :: head}"></head>
+
+    <body class="bg-dark text-white d-flex flex-column min-vh-100">
+
+        <section th:replace="~{layout/fragmentos-generales :: navbar}"></section>
+        <section th:replace="~{layout/fragmentos-generales :: sidebar}"></section>
+
+        <section class="contenido-pagina bg-dark text-light" style="min-height: 94.2vh;">
+            <h1>CONTENIDO DE PAGINA PRINCIPAL DE CADA USUARIO</h1>
+            <h1>Bienvenido a la página principal</h1>
+            <p>Tu ID de usuario es: <span th:text="${userId}"   ></span><p>
+        </section>
+
+    </body>
+</html>
