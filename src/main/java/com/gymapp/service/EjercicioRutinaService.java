@@ -7,5 +7,9 @@ import java.util.List;
 public interface EjercicioRutinaService {
 
     public List<EjercicioRutina> encontrarEjercicioRutinaPorRutina(Rutina rutina);
+    
+    public void EliminarEjercicioRutina(EjercicioRutina ejercicioRutina);
+    
+    public void GuardarEjercicioRutina(EjercicioRutina ejercicioRutina);
 
 }
