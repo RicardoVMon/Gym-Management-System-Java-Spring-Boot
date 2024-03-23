@@ -17,15 +17,15 @@
             </div>
 
             <div class="mt-3 " style="max-width: 50%">
-                <p class="fs-1 fw-bold mx-5" th:text="#{rutinasUsuarioRutina.nombreRutina}">Nombre de Rutina</p>
+                <p class="fs-1 fw-bold mx-5" th:text="${rutina.nombre}">Nombre de Rutina</p>
             </div>
 
             <div class="container-fluid p-5 pt-1">
 
                 <!--Cada row va a ser un ejercicio, que contiene una tabla de series dentro-->
-                <div class="row">
+                <div class="row" th:each="ejercicio : ${ejercicios}">
                     <div class="col mb-4">
-                        <p class="fw-bold fs-3" th:text="#{rutinasUsuarioRutina.nombreEjercicio}">Nombre de Ejercicio</p>
+                        <p class="fw-bold fs-3" th:text="${ejercicio.ejercicio.nombre}">Nombre de Ejercicio</p>
                         <table class="table text-light text-center">
                             <thead class="bg-light text-dark">
                                 <tr>
@@ -43,60 +43,33 @@
                                 <tr>
                                     <td>
                                         <div class="container px-0">
-                                            <a th:href="@{/admin/rutinas/usuario/rutina}" class="btn btn-danger rounded-circle">
+                                            <a th:href="'/admin/rutinas/usuario/rutina/' + ${rutina.idRutina} + '/eliminar/' + ${ejercicio.idEjercicioRutina}" class="btn btn-danger rounded-circle">
                                                 <i class="fa-solid fa-minus"></i>
                                             </a>
                                         </div>
                                     </td>
 
                                     <!--Estos puede modificarlo el admin-->
-                                    <form th:action="@{/admin/rutinas/usuario/rutina/guardar}" method="post">
-                                        <td>
-                                            <input type="text" class="form-control" th:placeholder="#{rutinasUsuarioRutina.ingreseSeriesEjercicio}">
-                                        </td>
-                                        <td>x</td>
-                                        <td>
-                                            <input type="text" class="form-control" th:placeholder="#{rutinasUsuarioRutina.ingreseRepeticionesEjercicio}">
-                                        </td>
-                                        <td>
-                                            <input readonly="true" type="text" class="form-control" th:placeholder="#{rutinasUsuarioRutina.pesoPrevio}">
-                                        </td>
-                                        <td>
-                                            <input readonly="true" type="text" class="form-control" th:placeholder="#{rutinasUsuarioRutina.pesoActual}">
-                                        </td>
-                                        <td>
-                                            <button type="submit" class="btn btn-success"><i class="fa-solid fa-check"></i></button>
-                                        </td>
-                                    </form>
-
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="container px-0">
-                                            <a th:href="@{/admin/rutinas/usuario/rutina}" class="btn btn-danger rounded-circle">
-                                                <i class="fa-solid fa-minus"></i>
-                                            </a>
-                                        </div>
-                                    </td>
-
-                                    <!--Estos puede modificarlo el admin-->
-                                    <form th:action="@{/admin/rutinas/usuario/rutina/guardar}" method="post">
-                                        <td>
-                                            <input type="text" class="form-control" th:placeholder="#{rutinasUsuarioRutina.ingreseSeriesEjercicio}">
-                                        </td>
-                                        <td>x</td>
-                                        <td>
-                                            <input type="text" class="form-control" th:placeholder="#{rutinasUsuarioRutina.ingreseRepeticionesEjercicio}">
-                                        </td>
-                                        <td>
-                                            <input readonly="true" type="text" class="form-control" th:placeholder="#{rutinasUsuarioRutina.pesoPrevio}">
-                                        </td>
-                                        <td>
-                                            <input readonly="true" type="text" class="form-control" th:placeholder="#{rutinasUsuarioRutina.pesoActual}">
-                                        </td>
-                                        <td>
-                                            <button type="submit" class="btn btn-success"><i class="fa-solid fa-check"></i></button>
-                                        </td>
+                                    <form th:action="'/admin/rutinas/usuario/rutina/' + ${rutina.idRutina} + '/actualizar/' + ${ejercicio.idEjercicioRutina}"  th:object="${ejercicioRutina}" method="POST">
+                                            <input type="hidden" class="form-control" th:value="${ejercicio.idEjercicioRutina}" min="1" name="idEjercicioRutina">
+                                            <input type="hidden" class="form-control" th:value="${ejercicio.ejercicio.idEjercicio}" min="1" name="ejercicio.idEjercicio">
+                                            <input type="hidden" class="form-control" th:value="${ejercicio.rutina.idRutina}" min="1" name="rutina.idRutina">
+                                            <td>
+                                                <input type="number" class="form-control" th:value="${ejercicio.series}" min="1" name="series">
+                                            </td>
+                                            <td>x</td>
+                                            <td>
+                                                <input type="number" class="form-control" th:value="${ejercicio.repeticiones}" min="1" name="repeticiones">
+                                            </td>
+                                            <td>
+                                                <input readonly="true" type="text" class="form-control text-secondary" th:value="${ejercicio.pesoPrevio}" name="pesoPrevio">
+                                            </td>
+                                            <td>
+                                                <input readonly="true" type="text" class="form-control text-secondary" th:value="${ejercicio.pesoActual}" name="pesoActual">
+                                            </td>
+                                            <td>
+                                                <button type="submit" class="btn btn-success"><i class="fa-solid fa-check"></i></button>
+                                            </td>
                                     </form>
                                 </tr>
                             </tbody>
@@ -104,7 +77,7 @@
 
                     </div>
                 </div>
-                
+
                 <div class="container w-50">
                     <a th:href="@{/admin/rutinas/usuario/rutina/agregar}" class="btn btn-primary fs-4 fw-bold w-100" th:text="#{rutinasUsuarioRutina.agregarEjercicio}">Agregar ejercicio</a>
                 </div>

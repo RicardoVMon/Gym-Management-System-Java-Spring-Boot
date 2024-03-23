@@ -14,7 +14,7 @@ public class EjercicioRutina implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_ejercicio_rutina")
-    private Long idRutinaEjercicio;
+    private Long idEjercicioRutina;
 
     @OneToOne
     @JoinColumn(name = "id_ejercicio")
