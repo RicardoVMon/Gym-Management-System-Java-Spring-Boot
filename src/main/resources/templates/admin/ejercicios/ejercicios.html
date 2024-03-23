@@ -1,172 +1,87 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-    <head th:replace="~{layout/fragmentos-generales :: head}"></head>
+    <head th:replace="~{layout/fragmentos-generales :: head}">
+        <title>Lista de Ejercicios</title>
+    </head>
     <body class="bg-dark text-white d-flex flex-column min-vh-100">
         <section th:replace="~{layout/fragmentos-generales :: navbar}"></section>
         <section th:replace="~{layout/fragmentos-generales :: sidebar}"></section>  
 
         <div class="contenido-pagina bg-dark">
-
             <div class="row p-3">
                 <div class="col">
-                    <h2 style="color: #a9f41e;" th:text="#{ejercicios.titulo}">Ejercicios</h2>
+                    <h2 style="color: #a9f41e;">Ejercicios</h2>
                 </div>
                 <div class="col">
                     <form class="d-flex justify-content-end" style="color:#a9f41e;" role="search"> 
                         <div class="input-group">
-                            <input class="form-control me-2" type="search" th:placeholder="#{ejercicios.buscar}" aria-label="Buscar">
-                                <button class="btn btn-outline-secondary" style="color: #a9f41e" type="submit" th:text="#{ejercicios.buscar}">Buscar</button>
+                            <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar">
+                                <button class="btn btn-outline-secondary" style="color: #a9f41e" type="submit">Buscar</button>
                         </div>
                     </form>
                 </div>
             </div>
 
             <div class="container">
-                <!-- Tabla -->
                 <table class="table table-dark mt-5"> 
                     <thead>
                         <tr>
-                            <th class="fs-1">D</th>
+                            <th class="fs-1">Lista de ejercicios</th>
                             <th></th>
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- EJEMPLOS de la tabla -->
-                        <tr>
-                            <td th:text="#{ejercicios.dominadas}">Dominadas</td>
+                        <tr th:each="ejercicio : ${listaEjercicios}">
+                            <td th:text="${ejercicio.nombre}">Nombre del ejercicio</td>
                             <td class="text-end">
                                 <div class="d-flex justify-content-end">
-                                    <a href="#" class="btn btn-primary btn-sm me-1" onclick="mostrarModal()">
+                                    <!-- Botón para editar ejercicio -->
+                                    <a th:href="@{/admin/ejercicios/editar/}+${ejercicio.idEjercicio}"class="btn btn-primary btn-sm me-1">
                                         <i class="fas fa-edit"></i>
                                     </a>
-                                    <a onclick="eliminar(1)" class="btn btn-danger btn-sm">
-                                        <i class="fas fa-trash-alt"></i>
-                                    </a>
-                                </div>
-                            </td>
-
-                        </tr>
-                        <tr>
-                            <td th:text="#{ejercicios.desplantes}">Desplantes</td>
-                            <td class="text-end">
-                                <div class="d-flex justify-content-end">
-                                    <a href="#" class="btn btn-primary btn-sm me-1" onclick="mostrarModal()">
-                                        <i class="fas fa-edit"></i>
-                                    </a>
-                                    <a onclick="eliminar(2)" class="btn btn-danger btn-sm">
+                                    <!-- Botón para eliminar ejercicio -->
+                                     <a th:href="@{/admin/ejercicios/eliminar/}+${ejercicio.idEjercicio}" class="btn btn-danger btn-sm me-1">
                                         <i class="fas fa-trash-alt"></i>
                                     </a>
                                 </div>
                             </td>
                         </tr>
-                        <tr>
-                            <td th:text="#{ejercicios.deltoidePosterior}">Deltoide Posterior</td>
-                            <td class="text-end">
-                                <div class="d-flex justify-content-end">
-                                    <a href="#" class="btn btn-primary btn-sm me-1" onclick="mostrarModal()">
-                                        <i class="fas fa-edit"></i>
-                                    </a>
-                                    <a onclick="eliminar(3)" class="btn btn-danger btn-sm">
-                                        <i class="fas fa-trash-alt"></i>
-                                    </a>
-                                </div>
-                            </td>
-
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="container">
-                <!-- Tabla -->
-                <table class="table table-dark mt-5"> 
-                    <thead>
-                        <tr>
-                            <th class="fs-1">S</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- EJEMPLOS de la tabla -->
-                        <tr>
-                            <td th:text="#{ejercicios.sentadillaBulgara}">Sentadilla bulgara</td>
-                            <td class="text-end">
-                                <div class="d-flex justify-content-end">
-                                    <a href="#" class="btn btn-primary btn-sm me-1" onclick="mostrarModal()">
-                                        <i class="fas fa-edit"></i>
-                                    </a>
-                                    <button onclick="eliminar(1)" class="btn btn-danger btn-sm">
-                                        <i class="fas fa-trash-alt"></i>
-                                    </button>
-                                </div>
-                            </td>
-
-                        </tr>
-                        <tr>
-                            <td th:text="#{ejercicios.saltos}">Saltos</td>
-                            <td class="text-end">
-                                <div class="d-flex justify-content-end">
-                                    <a href="#" class="btn btn-primary btn-sm me-1" onclick="mostrarModal()">
-                                        <i class="fas fa-edit"></i>
-                                    </a>
-                                    <button onclick="eliminar(2)" class="btn btn-danger btn-sm">
-                                        <i class="fas fa-trash-alt"></i>
-                                    </button>
-                                </div>
-                            </td>
-                        </tr>               
                     </tbody>
                 </table>
             </div>
 
             <div class="container text-end my-5">
-                <a href="#" class="btn btn-outline-secondary" style="color: #a9f41e;" onclick="mostrarModal()"> 
+                <!-- Botón para agregar nuevo ejercicio -->
+                <a href="#" class="btn btn-outline-secondary" style="color: #a9f41e;" data-bs-toggle="modal" data-bs-target="#nuevoEjercicioModal"> 
                     <i class="fas fa-plus"></i>
-                    <span th:text="#{ejercicios.nuevoEjercicio}"> Agregar Ejercicio</span>
+                    <span>Agregar Ejercicio</span>
                 </a>
             </div>
-
-
         </div>
 
-        <!-- Aquí se colocará el mensaje para lo de eliminar -->
-
-
-        <!-- Botón para agregar un nuevo ejercicio -->
-
-
-        <!-- Modal -->
+        <!-- Modal para agregar nuevo ejercicio -->
         <div class="modal fade" id="nuevoEjercicioModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dark">
                 <div class="modal-content bg-dark text-white">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel" style="color: #a9f41e" th:text="#{ejercicios.nuevoEjercicio}">Agregar Nuevo Ejercicio</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Agregar Nuevo Ejercicio</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="modal-body">
-                        <label for="nombreEjercicio" class="form-label" style="color:white" th:text="#{ejercicios.nombre}">Nombre del ejercicio:</label>
-                        <input type="text" class="form-control" id="nombreEjercicio">
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" th:text="#{ejercicios.cerrar}">Cerrar</button>
-                        <button type="button" class="btn btn-success" style="color: #a9f41e" onclick="guardarEjercicio()" th:text="#{ejercicios.guardar}">Guardar</button>
-                    </div>
+                    <form th:action="@{/admin/ejercicios/agregar}" method="post" th:object="${ejercicio}">
+                        <div class="modal-body">
+                            <label for="nombreEjercicio" class="form-label">Nombre del ejercicio:</label>
+                            <input type="text" class="form-control" id="nombreEjercicio" name="nombre" required>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            <button type="submit" class="btn btn-success">Guardar</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
-        <!-- Modal Scrip editar y moverlo cuando tengamos la base de datos-->
-        <script>
-            function mostrarModal() {
-                $('#nuevoEjercicioModal').modal('show');
-            }
 
-            function guardarEjercicio() {
-                var nombreEjercicio = document.getElementById('nombreEjercicio').value;
-                // Cuanto tengamos base la logica aqui
-                console.log("Se guardó el ejercicio: " + nombreEjercicio);
-                $('#nuevoEjercicioModal').modal('hide');
-            }
-        </script>
+
 
     </body>
 </html>
