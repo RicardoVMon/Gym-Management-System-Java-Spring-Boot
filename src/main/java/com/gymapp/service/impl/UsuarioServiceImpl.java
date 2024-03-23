@@ -6,6 +6,7 @@ import com.gymapp.service.UsuarioService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class UsuarioServiceImpl implements UsuarioService {
@@ -17,6 +18,12 @@ public class UsuarioServiceImpl implements UsuarioService {
     public List<Usuario> encontrarUsuarioPorRolUsuario(String nombreRol) {
         List<Usuario> usuarios = usuarioDao.findAllByRolNombre(nombreRol);
         return usuarios;
+    }
+    
+    @Override
+    @Transactional
+    public void eliminarUsuario(Long idUsuario) {
+        usuarioDao.deleteById(idUsuario);
     }
 
 }
