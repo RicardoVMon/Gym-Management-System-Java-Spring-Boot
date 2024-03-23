@@ -20,4 +20,14 @@ public class EjercicioRutinaServiceImpl implements EjercicioRutinaService {
         return ejercicios;
     }
 
+    @Override
+    public void EliminarEjercicioRutina(EjercicioRutina ejercicioRutina) {
+        ejercicioRutinaDao.delete(ejercicioRutina);
+    }
+
+    @Override
+    public void GuardarEjercicioRutina(EjercicioRutina ejercicioRutina) {
+        ejercicioRutinaDao.save(ejercicioRutina);
+    }
+
 }

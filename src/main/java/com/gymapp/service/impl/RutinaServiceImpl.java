@@ -20,4 +20,9 @@ public class RutinaServiceImpl implements RutinaService {
         return rutinas;
     }
 
+    @Override
+    public Rutina encontrarRutinaPorIdRutina(Rutina rutina) {
+        return rutinaDao.findById(rutina.getIdRutina()).orElse(null);
+    }
+
 }

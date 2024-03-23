@@ -19,38 +19,24 @@
             <div class="container-fluid p-5">
 
                 <div class="row">
-                    <div class="col-md-3 mb-4">
+                    <div class="col-md-3 mb-4" th:each="rutina : ${rutinas}">
                         <div class="card text-dark rounded-0 ">
-                            <div class="card-header h5 text-center p-2" th:text="#{rutinasAdmin.rutina}">
+                            <div class="card-header h5 text-center p-2" th:text="${rutina.nombre}">
                                 Rutina
                             </div>
                             <div class="card-body">
                                 <table class="table">
                                     <tbody>
-                                        <tr>
-                                            <td class="text-center">1</td>
+                                        <tr th:each="ejercicio : ${rutina.ejercicios}">
+                                            <td class="text-center" th:text="${ejercicio.series}">1</td>
                                             <td class="text-center">x</td>
-                                            <td class="text-center" th:text="#{rutinasAdmin.nombreEjercicio}">Nombre de Ejercicio</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-center">3</td>
-                                            <td class="text-center">x</td>
-                                            <td class="text-center" th:text="#{rutinasAdmin.nombreEjercicio}">Nombre de Ejercicio</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-center">4</td>
-                                            <td class="text-center">x</td>
-                                            <td class="text-center" th:text="#{rutinasAdmin.nombreEjercicio}">Nombre de Ejercicio</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-center">6</td>
-                                            <td class="text-center">x</td>
-                                            <td class="text-center" th:text="#{rutinasAdmin.nombreEjercicio}">Nombre de Ejercicio</td>
+                                            <td class="text-center" th:text="${ejercicio.repeticiones}">1</td>
+                                            <td class="text-center" th:text="${ejercicio.ejercicio.nombre}">Nombre de Ejercicio</td>
                                         </tr>
                                     </tbody>
                                 </table>
                                 <div class="container px-0">
-                                    <a th:href="@{/admin/rutinas/usuario/rutina}" class="btn btn-primary w-100" th:text="#{rutinasAdmin.administrarRutina}">Administrar</a>
+                                    <a th:href="@{/admin/rutinas/usuario/rutina/}+${rutina.idRutina}" class="btn btn-primary w-100" th:text="#{rutinasAdmin.administrarRutina}">Administrar</a>
                                 </div>
                             </div>
                         </div>

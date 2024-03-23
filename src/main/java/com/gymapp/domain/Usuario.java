@@ -22,11 +22,12 @@ public class Usuario implements Serializable {
     private String nombre;
     private String apellidos;
     private String email;
-    
+    private String genero;
+
     @OneToMany
     @JoinColumn(name = "id_usuario")
     private List<Rol> roles;
-    
+
     @OneToMany
     @JoinColumn(name = "id_usuario", insertable = false, updatable = false)
     private List<Rutina> rutinas;
@@ -34,12 +35,13 @@ public class Usuario implements Serializable {
     public Usuario() {
     }
 
-    public Usuario(String username, String password, String nombre, String apellidos, String email) {
+    public Usuario(String username, String password, String nombre, String apellidos, String email, String genero) {
         this.username = username;
         this.password = password;
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.email = email;
+        this.genero = genero;
     }
 
 }
