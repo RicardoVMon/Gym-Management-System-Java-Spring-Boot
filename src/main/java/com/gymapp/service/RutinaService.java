@@ -8,7 +8,7 @@ public interface RutinaService {
 
     public List<Rutina> encontrarRutinasPorUsuario(Usuario usuario);
     
-    public Rutina encontrarRutinaPorIdRutina(Rutina rutina);
+    public Rutina encontrarRutina(Rutina rutina);
     
     public void guardarRutina(Rutina rutina);
     

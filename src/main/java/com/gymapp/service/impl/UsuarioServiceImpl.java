@@ -10,20 +10,24 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class UsuarioServiceImpl implements UsuarioService {
-    
+
     @Autowired
     UsuarioDao usuarioDao;
-    
+
     @Override
     public List<Usuario> encontrarUsuarioPorRolUsuario(String nombreRol) {
         List<Usuario> usuarios = usuarioDao.findAllByRolNombre(nombreRol);
         return usuarios;
     }
-    
+
     @Override
     @Transactional
     public void eliminarUsuario(Long idUsuario) {
         usuarioDao.deleteById(idUsuario);
     }
 
+    @Override
+    public Usuario encontrarUsuarioPorId(Long idUsuario) {
+        return usuarioDao.findById(idUsuario).orElse(null);
+    }
 }

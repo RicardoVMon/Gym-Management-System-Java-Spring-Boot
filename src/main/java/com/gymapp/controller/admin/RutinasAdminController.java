@@ -49,8 +49,8 @@ public class RutinasAdminController {
     // Metodo para enviar todos los ejercicios de la rutina segun el id de la rutina
     
     @GetMapping("/rutinas/usuario/rutina/{idRutina}")
-    public String rutinasAdminListadoEjerciciosRutina(Model model, Rutina rutina) {
-        rutina = rutinaService.encontrarRutinaPorIdRutina(rutina);
+    public String rutinasAdminRutina(Model model, Rutina rutina) {
+        rutina = rutinaService.encontrarRutina(rutina);
         List<EjercicioRutina> ejercicios = ejercicioRutinaService.encontrarEjercicioRutinaPorRutina(rutina);
         model.addAttribute("ejercicios", ejercicios);
         model.addAttribute("rutina", rutina);
