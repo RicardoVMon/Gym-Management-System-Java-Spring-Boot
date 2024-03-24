@@ -21,7 +21,7 @@ public class RutinaServiceImpl implements RutinaService {
     }
 
     @Override
-    public Rutina encontrarRutinaPorIdRutina(Rutina rutina) {
+    public Rutina encontrarRutina(Rutina rutina) {
         return rutinaDao.findById(rutina.getIdRutina()).orElse(null);
     }
 

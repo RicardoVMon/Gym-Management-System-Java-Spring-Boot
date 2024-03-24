@@ -47,7 +47,7 @@ public class RutinasAdminController {
     
     @GetMapping("/rutinas/usuario/rutina/{idRutina}")
     public String rutinasAdminRutina(Model model, Rutina rutina) {
-        rutina = rutinaService.encontrarRutinaPorIdRutina(rutina);
+        rutina = rutinaService.encontrarRutina(rutina);
         List<EjercicioRutina> ejercicios = ejercicioRutinaService.encontrarEjercicioRutinaPorRutina(rutina);
         model.addAttribute("ejercicios", ejercicios);
         model.addAttribute("rutina", rutina);
