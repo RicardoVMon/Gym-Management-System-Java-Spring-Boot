@@ -9,5 +9,9 @@ public interface RutinaService {
     public List<Rutina> encontrarRutinasPorUsuario(Usuario usuario);
     
     public Rutina encontrarRutinaPorIdRutina(Rutina rutina);
+    
+    public void guardarRutina(Rutina rutina);
+    
+    public void eliminarRutina(Rutina rutina);
 
 }
