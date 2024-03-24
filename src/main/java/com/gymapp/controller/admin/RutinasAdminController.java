@@ -92,7 +92,7 @@ public class RutinasAdminController {
     public String rutinasAdminAgregarEjercicioRutina(Rutina rutina, 
             Ejercicio ejercicio, EjercicioRutina ejercicioRutina) {
         ejercicio = ejercicioService.getEjercicioById(ejercicio);
-        rutina = rutinaService.encontrarRutinaPorIdRutina(rutina);
+        rutina = rutinaService.encontrarRutina(rutina);
         ejercicioRutina.setRutina(rutina);
         ejercicioRutina.setEjercicio(ejercicio);
         ejercicioRutina.setPesoActual(0.0d);
