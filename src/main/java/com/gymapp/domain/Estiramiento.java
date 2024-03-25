@@ -12,9 +12,9 @@ public class Estiramiento implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_estiramiento")
     private Long idEstiramiento;
-
     private String nombre;
     private String descripcion;
     private String url;
