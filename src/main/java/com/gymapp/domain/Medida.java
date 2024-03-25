@@ -12,6 +12,7 @@ public class Medida implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_medida")
     private Long idMedida;
 
@@ -29,8 +30,18 @@ public class Medida implements Serializable {
     @OneToOne
     @JoinColumn(name = "id_usuario")
     private Usuario usuario;
-
+    
     public Medida() {
+        this.peso = 0.0;
+        this.grasa = 0.0;
+        this.cuello = 0.0;
+        this.hombros = 0.0;
+        this.bicepIzquierdo = 0.0;
+        this.bicepDerecho = 0.0;
+        this.cintura = 0.0;
+        this.cadera = 0.0;
+        this.musloIzquierdo = 0.0;
+        this.musloDerecho = 0.0;
     }
 
     public Medida(Double peso, Double grasa, Double cuello, Double hombros, Double bicepIzquierdo, Double bicepDerecho, Double cintura, Double cadera, Double musloIzquierdo, Double musloDerecho, Usuario usuario) {
