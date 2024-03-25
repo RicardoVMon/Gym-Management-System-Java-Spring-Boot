@@ -19,47 +19,77 @@
             <div class="container-fluid p-5">
 
                 <div class="row">
-                    <div class="col-md-3 mb-4">
+                    <div class="col-md-3 mb-4" th:each="rutina : ${rutinas}">
                         <div class="card text-dark rounded-0 ">
-                            <div class="card-header h5 text-center p-2" th:text="#{rutinasAdmin.rutina}">
+                            <div class="card-header h5 text-center p-2" th:text="${rutina.nombre}">
                                 Rutina
                             </div>
                             <div class="card-body">
                                 <table class="table">
                                     <tbody>
-                                        <tr>
-                                            <td class="text-center">1</td>
+                                        <tr th:if="${rutina.ejercicios != null and !rutina.ejercicios.empty}" th:each="ejercicio : ${rutina.ejercicios}">
+                                            <td class="text-center" th:text="${ejercicio.series}">1</td>
                                             <td class="text-center">x</td>
-                                            <td class="text-center" th:text="#{rutinasAdmin.nombreEjercicio}">Nombre de Ejercicio</td>
+                                            <td class="text-center" th:text="${ejercicio.repeticiones}">1</td>
+                                            <td class="text-center" th:text="${ejercicio.ejercicio.nombre}">Nombre de Ejercicio</td>
                                         </tr>
-                                        <tr>
-                                            <td class="text-center">3</td>
-                                            <td class="text-center">x</td>
-                                            <td class="text-center" th:text="#{rutinasAdmin.nombreEjercicio}">Nombre de Ejercicio</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-center">4</td>
-                                            <td class="text-center">x</td>
-                                            <td class="text-center" th:text="#{rutinasAdmin.nombreEjercicio}">Nombre de Ejercicio</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-center">6</td>
-                                            <td class="text-center">x</td>
-                                            <td class="text-center" th:text="#{rutinasAdmin.nombreEjercicio}">Nombre de Ejercicio</td>
+                                        <tr th:if="${rutina.ejercicios.empty}">
+                                            <td colspan="4" class="text-center">Actualmente La Rutina No Tiene Ejercicios, ¡Adminístrala Para Agregarle!</td>
                                         </tr>
                                     </tbody>
                                 </table>
                                 <div class="container px-0">
-                                    <a th:href="@{/admin/rutinas/usuario/rutina}" class="btn btn-primary w-100" th:text="#{rutinasAdmin.administrarRutina}">Administrar</a>
+                                    <div class="row justify-content-center">
+                                        <a th:href="@{/admin/rutinas/usuario/rutina/}+${rutina.idRutina}" class="btn btn-primary col-9" th:text="#{rutinasAdmin.administrarRutina}">Administrar</a>
+                                        <a th:href="'/admin/rutinas/usuario/' + ${idUsuario} + '/rutina/' + ${rutina.idRutina} + '/eliminar'" class="btn btn-danger col-2 ms-1"><i class="fa-solid fa-trash"></i></a>
+                                    </div>
                                 </div>
+
                             </div>
                         </div>
                     </div>
 
+                    <div class="col-md-3 mb-4">
+                        <button class="m-0 p-0" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" style="text-decoration: none;">
+                            <div class="card text-dark rounded-0 border border-5 p-4">
+                                <div class="card-body">
+                                    <div class="container d-flex flex-column justify-content-around text-center p-5">
+                                        <i class="fa-solid fa-circle-plus fs-1 p-3" style="color: #00752d;"></i>
+                                        <p class="fs-5" style="color: #00752d;">Agregar Nueva Rutina al usuario</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </button>
+                    </div>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title text-dark" id="exampleModalLabel">Agregar Nueva Rutina</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <form class="form" method="POST" th:action="'/admin/rutinas/usuario/rutina/' + ${idUsuario} + '/agregar/'" th:object="${rutina}">
+                                    <input type="hidden" name="usuario.idRutina" th:value="${idUsuario}">
+                                        <div class="modal-body">
+                                            <div class="form-group">
+                                                <label for="nombre" class="form-label text-dark">Nombre de Rutina</label>
+                                                <input type="text" class="form-control text-dark" placeholder="Ej: Rutina de Pierna, etc..." id="nombre" name="nombre">
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                            <button type="submit" class="btn btn-primary">Guardar</button>
+                                        </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+
                 </div>
             </div>
         </section>
-
     </body>
-
 </html>

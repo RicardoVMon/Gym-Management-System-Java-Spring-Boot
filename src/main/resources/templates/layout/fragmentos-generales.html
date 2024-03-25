@@ -49,7 +49,7 @@
             </ul>
 
         </section>
-        
+
         <!--Sidebar vertical estandarizado a para cada rol-->
         <section  th:fragment="sidebar" class="container sidebar">
 
@@ -62,6 +62,12 @@
 
                 <!-- Funcionalidades Específicas al Usuario -->
                 <div class="sidebar-links" sec:authorize="hasRole('ROLE_USER')">
+
+                    <a th:href="@{/}" class="card">
+                        <i class="fa-solid fa-house"></i>
+                        <span th:text="#{generales.Inicio}">Inicio</span>
+                    </a>
+
                     <a th:href="@{/user/rutinas}" class="card">
                         <i class="fas fa-dumbbell"></i>
                         <span th:text="#{generales.misrutinas}">Mis Rutinas</span>
@@ -80,6 +86,12 @@
 
                 <!--Funcionalidades específicas al Admin-->
                 <div class="sidebar-links" sec:authorize="hasRole('ROLE_ADMIN')">
+
+                    <a th:href="@{/}" class="card">
+                        <i class="fa-solid fa-house"></i>
+                        <span th:text="#{generales.Inicio}">Inicio</span>
+                    </a>
+
                     <a th:href="@{/admin/rutinas}" class="card">
                         <i class="fa-regular fa-calendar"></i>
                         <span th:text="#{generales.rutinas}">Rutinas</span>

@@ -20,4 +20,19 @@ public class RutinaServiceImpl implements RutinaService {
         return rutinas;
     }
 
+    @Override
+    public Rutina encontrarRutina(Rutina rutina) {
+        return rutinaDao.findById(rutina.getIdRutina()).orElse(null);
+    }
+
+    @Override
+    public void guardarRutina(Rutina rutina) {
+        rutinaDao.save(rutina);
+    }
+
+    @Override
+    public void eliminarRutina(Rutina rutina) {
+        rutinaDao.delete(rutina);
+    }
+
 }
