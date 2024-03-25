@@ -23,12 +23,12 @@ public class EstiramientosUserController {
         return "user/estiramientos/estiramientos";
     }
     
-    @GetMapping("/estiramientos/{idEstiramiento}")
+    @GetMapping("/videos/{idEstiramiento}")
     public String estiramientosUserEstiramientos(@PathVariable Long idEstiramiento, Model model) {
         Estiramiento estiramiento = estiramientoService.getEstiramientoPorId(idEstiramiento);
         model.addAttribute("estiramiento", estiramiento);
         
-        return "user/estiramientos/videos/estiramientos";
+        return "user/estiramientos/videos";
     }
 }
 

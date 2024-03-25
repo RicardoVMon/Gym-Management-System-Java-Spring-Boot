@@ -16,7 +16,7 @@
             <table class="table table-dark" style="width: 80%; margin: 0 auto;">
                 <tr th:each="estiramiento: ${estiramientos}">
                     <td>
-                        <a th:href="@{/user/estiramientos/}+${estiramiento.idEstiramiento}">
+                        <a th:href="@{/user/videos/}+${estiramiento.idEstiramiento}">
                             [[${estiramiento.nombre}]]
                         </a>
                     </td>
