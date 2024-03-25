@@ -8,7 +8,7 @@
     <body class="bg-dark text-white d-flex flex-column min-vh-100">
 
         <section th:replace="~{layout/fragmentos-generales :: navbar}"></section>
-        <section th:replace="~{layout/fragmentos-generales :: sidebar-admin}"></section>  
+        <section th:replace="~{layout/fragmentos-generales :: sidebar}"></section>  
         
         <section class="contenido-pagina bg-dark text-light" style="min-height: 94.2vh;">
 
@@ -19,23 +19,22 @@
         <div class="container-fluid p-5">
 
             <div class="row">
-                <div class="col-md-3 mb-4">
-                    <div class="card text-dark rounded-0 ">
-                        <div class="card-header h5 text-center p-2" th:text="#{rutinasAdmin.nombreUsuario}">
-                            Nombre de Usuario
+                <div class="col-md-3 mb-4" th:each="usuario : ${usuarios}">
+                    <div class="card text-dark rounded-0">
+                        <div class="card-header h5 text-center p-2" th:text="${usuario.nombre + ' ' + usuario.apellidos}">
                         </div>
                         <div class="card-body">
                             <form class="p-2">
                                 <div class="form-group mb-2">
                                     <label th:text="#{rutinasAdmin.correoElectronico}">Correo Electrónico</label>
-                                    <input type="text" class="form-control" th:placeholder="#{rutinasAdmin.correoPlaceholder}" readonly />
+                                    <input type="text" class="form-control" th:value="${usuario.email}" readonly />
                                 </div>
                                 <div class="form-group mb-2 pb-4 border-bottom border-2">
-                                    <label th:text="#{rutinasAdmin.genero}">Género</label>
-                                    <input type="text" class="form-control" th:placeholder="#{rutinasAdmin.generoPlaceholder}" readonly />
+                                    <label th:text="#{usuariosAdmin.username}">Nombre de Usuario</label>
+                                    <input type="text" class="form-control" th:value="${usuario.username}" readonly />
                                 </div>
                                 <div class="container px-0">
-                                    <a th:href="@{/admin/rutinas/usuario}" class="btn btn-primary w-100" th:text="#{rutinasAdmin.comenzar}">Comenzar</a>
+                                    <a th:href="@{/admin/rutinas/usuario/}+${usuario.idUsuario}" class="btn btn-primary w-100" th:text="#{rutinasAdmin.seleccionar}">Seleccionar</a>
                                 </div>
                             </form>
                         </div>

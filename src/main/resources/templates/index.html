@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+    <head th:replace="~{layout/fragmentos-generales :: head}"></head>
+
+    <body class="bg-dark text-white d-flex flex-column min-vh-100">
+
+        <section th:replace="~{layout/fragmentos-generales :: navbar}"></section>
+        <section th:replace="~{layout/fragmentos-generales :: sidebar}"></section>
+
+        <section class="contenido-pagina bg-dark text-light d-flex flex-column justify-content-center align-items-center" style="min-height: 94.2vh;">
+            <div class="container text-center mt-5 mb-4"> 
+                <h1>Viví la experiencia Legends Workout</h1>
+
+                <!-- Funcionalidades Específicas al Usuario -->
+            <div class="d-flex flex-row justify-content-center mt-2" sec:authorize="hasRole('ROLE_USER')"> <!-- Añadido sec:authorize para usuarios -->
+                <div class="card bg-dark text-white border-0" style="width: 18rem; margin-right: 15px;">
+                    <svg class="bd-placeholder-img card-img-top" width="50%" height="50" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false">
+                        <title>Mis Rutinas</title>
+                        <img src="https://images.pexels.com/photos/841130/pexels-photo-841130.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Mis Rutinas" style="width: 100%; height: 400px; object-fit: cover;">
+                    </svg>
+                    <div class="card-body">
+                        <h5 class="card-title">Mis Rutinas</h5>
+                        <p class="card-text">Accede a tus rutinas personalizadas. Work hard, gain hard.</p>
+                        <a th:href="@{/user/rutinas}" class="btn btn-outline-secondary" style="color:#a9f41e; border-color: #a9f41e;">
+                            Ir a mis rutinas
+                        </a>
+                    </div>
+                </div>
+
+                <div class="card bg-dark text-white border-0" style="width: 18rem; margin-right: 15px;">
+                    <svg class="bd-placeholder-img card-img-top" width="50%" height="50" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false">
+                        <title>Estiramientos</title>
+                        <img src="https://images.pexels.com/photos/3820441/pexels-photo-3820441.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Estiramientos" style="width: 100%; height: 400px; object-fit: cover;">
+                    </svg>
+                    <div class="card-body">
+                        <h5 class="card-title">Estiramientos</h5>
+                        <p class="card-text">Encuentra una variedad de estiramientos para tu rutina.</p>
+                        <a th:href="@{/user/estiramientos}" class="btn btn-outline-secondary" style="color:#a9f41e; border-color: #a9f41e;">
+                            Ir a estiramientos
+                        </a>
+                    </div>
+                </div>
+
+                <div class="card bg-dark text-white border-0" style="width: 19rem;">
+                    <svg class="bd-placeholder-img card-img-top" width="50%" height="50" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false">
+                        <title>Mis Medidas</title>
+                        <img src="https://images.pexels.com/photos/3757376/pexels-photo-3757376.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Mis Medidas" style="width: 100%; height: 400px; object-fit: cover;">
+                    </svg>
+                    <div class="card-body">
+                        <h5 class="card-title">Mis Medidas</h5>
+                        <p class="card-text">Visualiza y registra tus medidas físicas.</p>
+                        <a th:href="@{/user/medidas}" class="btn btn-outline-secondary" style="color:#a9f41e; border-color: #a9f41e;">
+                            Ir a mis medidas
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+
+                <!-- Funcionalidades específicas al Admin -->
+                <div class="sidebar-links d-flex flex-row justify-content-center" sec:authorize="hasRole('ROLE_ADMIN')">
+                    <div class="card bg-dark text-white border-0" style="width: 18rem; margin-bottom: 15px; margin-right: 15px;">
+                        <svg class="bd-placeholder-img card-img-top" width="50%" height="50" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false">
+                            <title>Rutinas</title>
+                            <img src="https://images.pexels.com/photos/14205037/pexels-photo-14205037.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Rutinas" style="width: 100%; height: 400px; object-fit: cover;">
+                        </svg>
+                        <div class="card-body">
+                            <h5 class="card-title">Rutinas</h5>
+                            <p class="card-text">Administra las rutinas.</p>
+                            <a th:href="@{/admin/rutinas}" class="btn btn-outline-secondary" style="color:#a9f41e; border-color: #a9f41e;">
+                                <i class="fas fa-arrow-left" style="color:#a9f41e"></i> Ir a rutinas
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="card bg-dark text-white border-0" style="width: 18rem; margin-bottom: 15px; margin-right: 15px;">
+                        <svg class="bd-placeholder-img card-img-top" width="50%" height="50" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false">
+                            <title>Usuarios</title>
+                            <img src="https://images.pexels.com/photos/1552249/pexels-photo-1552249.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Usuarios" style="width: 100%; height: 400px; object-fit: cover;">
+                        </svg>
+                        <div class="card-body">
+                            <h5 class="card-title">Usuarios</h5>
+                            <p class="card-text">Usuarios del sistema.</p>
+                            <a th:href="@{/admin/usuarios}" class="btn btn-outline-secondary" style="color:#a9f41e; border-color: #a9f41e;">
+                                <i class="fas fa-arrow-left" style="color:#a9f41e"></i> Ir a usuarios
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="card bg-dark text-white border-0" style="width: 18rem; margin-bottom: 15px;">
+                        <svg class="bd-placeholder-img card-img-top" width="50%" height="50" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false">
+                            <title>Ejercicios</title>
+                            <img src="https://images.pexels.com/photos/414029/pexels-photo-414029.jpeg" alt="Ejercicios" style="width: 100%; height: 400px; object-fit: cover;">
+                        </svg>
+                        <div class="card-body">
+                            <h5 class="card-title">Ejercicios</h5>
+                            <p class="card-text"> Ejercicios disponibles.</p>
+                            <a th:href="@{/admin/ejercicios}" class="btn btn-outline-secondary" style="color:#a9f41e; border-color: #a9f41e;">
+                                <i class="fas fa-arrow-left" style="color:#a9f41e"></i> Ir a ejercicios
+                            </a>
+                        </div>
+                    </div>
+                </div>
+        </section>
+    </body>
+</html>

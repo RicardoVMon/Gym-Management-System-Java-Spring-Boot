@@ -1,248 +1,187 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
-    
-    <head th:replace="~{layout/fragmentos-generales :: head}"></head>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
-    <body class="bg-dark text-white d-flex flex-column min-vh-100">
+<head th:replace="~{layout/fragmentos-generales :: head}"></head>
 
-        <section th:replace="~{layout/fragmentos-generales :: navbar}"></section>
-        <section th:replace="~{layout/fragmentos-generales :: sidebar-user}"></section>  
 
-        <section class="contenido-pagina bg-dark text-light" style="min-height: 94.2vh;">
+<body class="bg-dark text-white d-flex flex-column min-vh-100">
 
-            <div class="mt-3 " style="max-width: 40%">
-                <p class="border-bottom border-2 mx-5 p-3 pb-2 fs-5" th:text="#{medidas.titulo}">Tus Medidas</p>
+    <section th:replace="~{layout/fragmentos-generales :: navbar}"></section>
+    <section th:replace="~{layout/fragmentos-generales :: sidebar}"></section>
+
+    <section class="contenido-pagina bg-dark text-light" style="min-height: 94.2vh;">
+        
+        <div class="d-flex flex-column pt-5 px-5" style="width: 100%">
+            <div class="d-flex flex-row justify-content-between">
+                <p class="fs-5 m-0" th:text="#{medidas.titulo}">Tus Medidas</p>
             </div>
+            <div class="border-bottom border-2 pb-2 fs-5 col-md-12">
+        </div>
+        
 
-            <div class="container-fluid p-5 align-items-center">
+        <form th:action="@{/user/medidas}" th:object="${medidasUsuario}" method="POST" enctype="multipart/form-data">
+            <div class="container-fluid align-items-center p-0 pb-3">
+                <input class="invisible" type="text" name="idMedida" th:value="${medidasUsuario.idMedida}">
 
                 <div class="row mt-3 align-items-center">
 
-                    <div class="col-md-4 ">
+                    <div class="col-md-8">
                         <h3 class="m-0" th:text="#{medidas.pesoKg}">Peso (kg)</h3>
                     </div>
 
-                    <div class="col-md-3">
-                        <input type="text" class="form-control" th:placeholder="#{medidas.valorPlaceholder}">
+                    <div class="col-md-4">
+                        <input type="text" name="peso" class="form-control" th:placeholder="#{medidas.valorPlaceholder}"
+                            th:value="${medidasUsuario.peso}">
                     </div>
-                    
-                    <div class="col-md-auto ps-0 justify-content-center ">
-                        <button class="btn btn-success"><i class="fa-solid fa-check"></i></button>
-                    </div>
-                    
-                    <div class="col-md-auto ps-0 justify-content-center align-items-start">
-                        <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
-                    </div>
-                    
-                </div>
-                    
-                <hr style="width: 65%;">
-                    
-                <div class="row mt-3 align-items-center">
-                    
 
-                    <div class="col-md-4 ">
+                </div>
+
+                <hr style="width: 100%;">
+
+                <div class="row mt-3 align-items-center">
+                    <div class="col-md-8">
                         <h3 class="m-0" th:text="#{medidas.grasaCorporal}">Grasa Corporal (%)</h3>
                     </div>
 
-                    <div class="col-md-3">
-                        <input type="text" class="form-control" th:placeholder="#{medidas.valorPlaceholder}">
+                    <div class="col-md-4">
+                        <input type="text" name="grasa" class="form-control" th:placeholder="#{medidas.valorPlaceholder}"
+                            th:value="${medidasUsuario.grasa}">
                     </div>
-                    
-                    <div class="col-md-auto ps-0 justify-content-center ">
-                        <button class="btn btn-success"><i class="fa-solid fa-check"></i></button>
-                    </div>
-                    
-                    <div class="col-md-auto ps-0 justify-content-center align-items-start">
-                        <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
-                    </div>
-                    
                 </div>
-                    
-                <hr style="width: 65%;">
-                
+
+                <hr style="width: 100%;">
+
                 <div class="row mt-3 align-items-center">
 
-                    <div class="col-md-4 ">
+                    <div class="col-md-8">
                         <h3 class="m-0" th:text="#{medidas.cuello}">Cuello (cm)</h3>
                     </div>
 
-                    <div class="col-md-3">
-                        <input type="text" class="form-control" th:placeholder="#{medidas.valorPlaceholder}">
+                    <div class="col-md-4">
+                        <input type="text" name="cuello" class="form-control" th:placeholder="#{medidas.valorPlaceholder}" th:value="${medidasUsuario.cuello}">
                     </div>
-                    
-                    <div class="col-md-auto ps-0 justify-content-center ">
-                        <button class="btn btn-success"><i class="fa-solid fa-check"></i></button>
-                    </div>
-                    
-                    <div class="col-md-auto ps-0 justify-content-center align-items-start">
-                        <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
-                    </div>
-                    
+
+
                 </div>
-                    
-                <hr style="width: 65%;">
-                    
+
+                <hr style="width: 100%;">
+
                 <div class="row mt-3 align-items-center">
 
-                    <div class="col-md-4 ">
+                    <div class="col-md-8">
                         <h3 class="m-0" th:text="#{medidas.hombros}">Hombros (cm)</h3>
                     </div>
 
-                    <div class="col-md-3">
-                        <input type="text" class="form-control" th:placeholder="#{medidas.valorPlaceholder}">
+                    <div class="col-md-4">
+                        <input type="text" name="hombros" class="form-control" th:placeholder="#{medidas.valorPlaceholder}" th:value="${medidasUsuario.hombros}">
                     </div>
-                    
-                    <div class="col-md-auto ps-0 justify-content-center ">
-                        <button class="btn btn-success"><i class="fa-solid fa-check"></i></button>
-                    </div>
-                    
-                    <div class="col-md-auto ps-0 justify-content-center align-items-start">
-                        <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
-                    </div>
-                    
+
                 </div>
-                    
-                <hr style="width: 65%;">
-                    
+
+                <hr style="width: 100%;">
+
                 <div class="row mt-3 align-items-center">
 
-                    <div class="col-md-4 ">
+                    <div class="col-md-8">
                         <h3 class="m-0" th:text="#{medidas.bicepIzquierdo}">Bicep Izquiero (cm)</h3>
                     </div>
 
-                    <div class="col-md-3">
-                        <input type="text" class="form-control" th:placeholder="#{medidas.valorPlaceholder}">
+                    <div class="col-md-4">
+                        <input type="text" name="bicepIzquierdo" class="form-control" th:placeholder="#{medidas.valorPlaceholder}" th:value="${medidasUsuario.bicepIzquierdo}">
                     </div>
-                    
-                    <div class="col-md-auto ps-0 justify-content-center ">
-                        <button class="btn btn-success"><i class="fa-solid fa-check"></i></button>
-                    </div>
-                    
-                    <div class="col-md-auto ps-0 justify-content-center align-items-start">
-                        <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
-                    </div>
-                    
+
+
                 </div>
-                    
-                <hr style="width: 65%;">
-                    
+
+                <hr style="width: 100%;">
+
                 <div class="row mt-3 align-items-center">
 
-                    <div class="col-md-4 ">
+                    <div class="col-md-8">
                         <h3 class="m-0" th:text="#{medidas.bicepDerecho}">Bicep Derecho (cm)</h3>
                     </div>
 
-                    <div class="col-md-3">
-                        <input type="text" class="form-control" th:placeholder="#{medidas.valorPlaceholder}">
+                    <div class="col-md-4">
+                        <input type="text" name="bicepDerecho" class="form-control" th:placeholder="#{medidas.valorPlaceholder}" th:value="${medidasUsuario.bicepDerecho}">
                     </div>
-                    
-                    <div class="col-md-auto ps-0 justify-content-center ">
-                        <button class="btn btn-success"><i class="fa-solid fa-check"></i></button>
-                    </div>
-                    
-                    <div class="col-md-auto ps-0 justify-content-center align-items-start">
-                        <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
-                    </div>
-                    
+
+
                 </div>
-                    
-                <hr style="width: 65%;">
-                    
+
+                <hr style="width: 100%;">
+
                 <div class="row mt-3 align-items-center">
 
-                    <div class="col-md-4 ">
+                    <div class="col-md-8">
                         <h3 class="m-0" th:text="#{medidas.cintura}">Cintura (cm)</h3>
                     </div>
 
-                    <div class="col-md-3">
-                        <input type="text" class="form-control" th:placeholder="#{medidas.valorPlaceholder}">
+                    <div class="col-md-4">
+                        <input type="text" name="cintura" class="form-control" th:placeholder="#{medidas.valorPlaceholder}" th:value="${medidasUsuario.cintura}">
                     </div>
-                    
-                    <div class="col-md-auto ps-0 justify-content-center ">
-                        <button class="btn btn-success"><i class="fa-solid fa-check"></i></button>
-                    </div>
-                    
-                    <div class="col-md-auto ps-0 justify-content-center align-items-start">
-                        <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
-                    </div>
-                    
+
                 </div>
-                    
-                <hr style="width: 65%;">
-                    
+
+                <hr style="width: 100%;">
+
                 <div class="row mt-3 align-items-center">
 
-                    <div class="col-md-4 ">
+                    <div class="col-md-8">
                         <h3 class="m-0" th:text="#{medidas.cadera}">Cadera (cm)</h3>
                     </div>
 
-                    <div class="col-md-3">
-                        <input type="text" class="form-control" th:placeholder="#{medidas.valorPlaceholder}">
+                    <div class="col-md-4">
+                        <input type="text" name="cadera" class="form-control" th:placeholder="#{medidas.valorPlaceholder}" th:value="${medidasUsuario.cadera}">
                     </div>
-                    
-                    <div class="col-md-auto ps-0 justify-content-center ">
-                        <button class="btn btn-success"><i class="fa-solid fa-check"></i></button>
-                    </div>
-                    
-                    <div class="col-md-auto ps-0 justify-content-center align-items-start">
-                        <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
-                    </div>
-                    
+
                 </div>
-                    
-                <hr style="width: 65%;">
-                    
+
+                <hr style="width: 100%;">
+
                 <div class="row mt-3 align-items-center">
 
-                    <div class="col-md-4 ">
+                    <div class="col-md-8">
                         <h3 class="m-0" th:text="#{medidas.musloIzquierdo}">Muslo Izquiero (cm)</h3>
                     </div>
 
-                    <div class="col-md-3">
-                        <input type="text" class="form-control" th:placeholder="#{medidas.valorPlaceholder}">
+                    <div class="col-md-4">
+                        <input type="text" name="musloIzquierdo" class="form-control" th:placeholder="#{medidas.valorPlaceholder}" th:value="${medidasUsuario.musloIzquierdo}">
                     </div>
-                    
-                    <div class="col-md-auto ps-0 justify-content-center ">
-                        <button class="btn btn-success"><i class="fa-solid fa-check"></i></button>
-                    </div>
-                    
-                    <div class="col-md-auto ps-0 justify-content-center align-items-start">
-                        <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
-                    </div>
-                    
                 </div>
-                    
-                <hr style="width: 65%;">
-                    
+
+                <hr style="width: 100%;">
+
                 <div class="row mt-3 align-items-center">
 
-                    <div class="col-md-4 ">
+                    <div class="col-md-8">
                         <h3 class="m-0" th:text="#{medidas.musloDerecho}">Muslo Derecho (cm)</h3>
                     </div>
 
-                    <div class="col-md-3">
-                        <input type="text" class="form-control" th:placeholder="#{medidas.valorPlaceholder}">
+                    <div class="col-md-4">
+                        <input type="text" name="musloDerecho" class="form-control" th:placeholder="#{medidas.valorPlaceholder}" th:value="${medidasUsuario.musloDerecho}">
                     </div>
-                    
-                    <div class="col-md-auto ps-0 justify-content-center ">
-                        <button class="btn btn-success"><i class="fa-solid fa-check"></i></button>
-                    </div>
-                    
-                    <div class="col-md-auto ps-0 justify-content-center align-items-start">
-                        <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
-                    </div>
-                    
+
                 </div>
-                    
-                <hr style="width: 65%;">
-              
+
+                <hr style="width: 100%;">
+                
+                <div class="d-flex justify-content-end">
+                    <div class="col-md-auto px-1 d-flex justify-content-end">
+                        <a class="btn btn-danger me-2" th:href="@{/user/medidas/eliminar/}+${medidasUsuario.idMedida}">
+                            <i class="fa-solid fa-trash me-1"></i>Eliminar Medidas
+                        </a>
+                        <button class="btn btn-success ms-1" type="submit">
+                            <i class="fa-solid fa-check me-1"></i>Guardar Cambios
+                        </button>
+                    </div>
+                </div>
+
             </div>
+        </form>
 
-        </section>
+    </section>
 
-    </body>
-    
+</body>
+
 </html>
