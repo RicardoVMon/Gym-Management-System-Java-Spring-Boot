@@ -15,16 +15,8 @@
         <div class="d-flex flex-column pt-5 px-5" style="width: 100%">
             <div class="d-flex flex-row justify-content-between">
                 <p class="fs-5 m-0" th:text="#{medidas.titulo}">Tus Medidas</p>
-
-                <div>
-                    <form th:action="@{/user/medidas/eliminar}" th:object="${medidasUsuario}"  method="POST">
-                        <input class="invisible" type="text" name="idMedida" th:value="${medidasUsuario.idMedida}">
-                        <button class="btn btn-danger" type="submit"><i class="fa-solid fa-trash"></i></button>
-                    </form>
-                </div>
             </div>
-            
-            <div class="border-bottom border-2 pb-2 fs-5 col-md-12"></p>
+            <div class="border-bottom border-2 pb-2 fs-5 col-md-12">
         </div>
         
 
@@ -173,12 +165,18 @@
                 </div>
 
                 <hr style="width: 100%;">
-                    
+                
                 <div class="d-flex justify-content-end">
                     <div class="col-md-auto px-1 d-flex justify-content-end">
-                        <button class="btn btn-success" type="submit"><i class="fa-solid fa-check"></i></button>
+                        <a class="btn btn-danger me-2" th:href="@{/user/medidas/eliminar/}+${medidasUsuario.idMedida}">
+                            <i class="fa-solid fa-trash me-1"></i>Eliminar Medidas
+                        </a>
+                        <button class="btn btn-success ms-1" type="submit">
+                            <i class="fa-solid fa-check me-1"></i>Guardar Cambios
+                        </button>
                     </div>
                 </div>
+
             </div>
         </form>
 
