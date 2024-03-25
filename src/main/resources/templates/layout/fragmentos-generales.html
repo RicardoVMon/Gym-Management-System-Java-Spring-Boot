@@ -19,12 +19,10 @@
     <body>
 
         <!-- Navbar Horizontal -->
-        <section th:fragment="navbar" class="navbar navbar-dark navbar-expand justify-content-around navbarInicio px-5" style="z-index: 100;">
-
-            <div></div> 
+        <section th:fragment="navbar" class="navbar navbar-dark navbar-expand justify-content-around navbarInicio" style="z-index: 100;">
             <!--Se cambia temporalmente el espacio de hora para poder demostrar el id del usuario actual-->
-            <div class="text-center fw-bold">Bienvenido Usuario #<span th:text="${session.id}"></span></div>
-            <ul class="navbar-nav">
+            <div class="text-center fw-bold col-md-10">Bienvenido Usuario #<span th:text="${session.id}"></span></div>
+            <ul class="navbar-nav col-md-2">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" th:text="#{generales.idioma}">
                         Idioma
