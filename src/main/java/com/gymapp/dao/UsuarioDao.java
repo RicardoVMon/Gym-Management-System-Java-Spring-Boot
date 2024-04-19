@@ -11,6 +11,8 @@ public interface UsuarioDao extends JpaRepository<Usuario, Long> {
 
     Usuario findByUsername(String username);
     
+    Usuario findByEmail(String email);
+    
     @Query(value = "SELECT DISTINCT u.* FROM gymapp.usuario u " +
             "INNER JOIN gymapp.rol r ON u.id_usuario = r.id_usuario " +
             "WHERE r.nombre = :nombreRol", nativeQuery = true)
