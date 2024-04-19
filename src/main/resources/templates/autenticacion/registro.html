@@ -27,27 +27,29 @@
             </div>
             <div class="col d-flex align-items-center">
                 <div class="container-fluid d-flex flex-column">
-                    <form class="pb-5 px-5" th:action="@{/user/rutinas}" method="GET">
+                    
+                    <form class="pb-4 px-5 border-bottom" th:action="@{/registrar}" method="POST" th:object="${usuario}">
+                        <div class="text-center fs-4" th:text="${mensaje}"></div>
                         <div class="text-center fw-bold" style="font-size: 10vh; color: #ffffff;">Legends Workout</div>
                         <h2 class="mb-5 text-center" style="color: #a9f41e;">Registro de Usuario</h2>
                         <div class="row mb-3">
                             <div class="col">
                                 <div class="form-group form-floating">
-                                    <input type="text" class="form-control bg-dark text-white" placeholder="Nombre" name=""/>
-                                    <label class="form-label" style="color: #ffffff;">Nombre</label>
+                                    <input type="text" class="form-control bg-dark text-white" placeholder="Nombre" name="username" required="true"/>
+                                    <label class="form-label" style="color: #ffffff;">Nombre de Usuario</label>
                                 </div>
                             </div>
                         </div>
                         <div class="row mb-3">
                             <div class="col-4">
                                 <div class="form-group form-floating">
-                                    <input type="text" class="form-control bg-dark text-white" placeholder="Nombre" name=""/>
+                                    <input type="text" class="form-control bg-dark text-white" placeholder="Nombre" name="nombre" required="true"/>
                                     <label class="form-label" style="color: #ffffff;">Nombre</label>
                                 </div>
                             </div>
                             <div class="col-8">
                                 <div class="form-group form-floating">
-                                    <input type="text" class="form-control bg-dark text-white" placeholder="Apellidos" name=""/>
+                                    <input type="text" class="form-control bg-dark text-white" placeholder="Apellidos" name="apellidos" required="true"/>
                                     <label class="form-label" style="color: #ffffff;">Apellidos</label>
                                 </div>
                             </div>
@@ -56,13 +58,13 @@
                         <div class="row mb-3">
                             <div class="col-7">
                                 <div class="form-group form-floating">
-                                    <input type="text" class="form-control bg-dark text-white" placeholder="Correo" name=""/>
+                                    <input type="text" class="form-control bg-dark text-white" placeholder="Correo" name="email" required="true"/>
                                     <label class="form-label" style="color: #ffffff;">Correo Electrónico</label>
                                 </div>
                             </div>
                             <div class="col-5">
                                 <div class="form-group form-floating">
-                                    <select id="gender" class="form-control bg-dark text-white" >
+                                    <select id="gender" class="form-control bg-dark text-white" name="genero" required="true">
                                         <option value="" selected disabled style="color: #ffffff;">Seleccione su género</option>
                                         <option value="Masculino" style="color: #ffffff;">Masculino</option>
                                         <option value="Femenino" style="color: #ffffff;">Femenino</option>
@@ -76,7 +78,7 @@
                         </div>
 
                         <div class="form-group form-floating mb-4">
-                            <input type="password" class="form-control bg-dark text-white" placeholder="Contraseña" name="" />
+                            <input type="password" class="form-control bg-dark text-white" placeholder="Contraseña" name="password" required="true"/>
                             <label class="form-label" style="color: #ffffff;">Contraseña</label>
                         </div>
                         <div class="form-group text-center">
@@ -85,10 +87,9 @@
                             </button>
                         </div>
                     </form>
-                    <a class="mt-4 text-center under" th:href="@{/}" style="color: #ffffff;">¿Ya tenés una cuenta? ¡Inicia sesión! </a>
+                    <a class="mt-3 text-center under" th:href="@{/}" style="color: #ffffff;">¿Ya tenés una cuenta? <br> ¡Inicia sesión! </a>
                 </div>
             </div>
         </section>
-
     </body>
 </html>

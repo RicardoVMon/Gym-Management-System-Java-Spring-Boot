@@ -13,7 +13,7 @@
         <section class="contenido-pagina bg-dark text-light" style="min-height: 94.2vh; background-color: #343434;">
 
             <div class="mt-3 " style="max-width: 50%">
-                <p class="border-bottom border-2 mx-5 mb-0 p-3 pb-2 fs-5" th:text="#{rutinasUser.modificarpeso}">Modifique sus pesos previos y actuales como guste</p>
+                <p class="border-bottom border-2 mx-5 mb-0 p-3 pb-2 fs-5">Escoja la rutina que desea realizar</p>
             </div>
 
             <div class="container-fluid p-5">
@@ -39,6 +39,13 @@
                                     <a th:href="@{/user/rutinas/rutina/}+${rutina.idRutina}" class="btn btn-primary w-100" th:text="#{rutinasUser.comenzar}">Comenzar</a>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+
+                    <div th:if="${rutinas.empty}" class="row justify-content-center align-items-center">
+                        <div class="col mb-4 text-center">
+                            <p class="fs-1 mx-auto" style="max-width: 50%;">¡Vaya! Parece que no tienes rutinas asignadas. ¡Solicita a tu entrenador que te <span class="fw-bold">asigne una rutina</span> para comenzar!</p>
+                            <iframe src="https://giphy.com/embed/CM1rHbKDMH2BW" width="240" height="180" frameBorder="0" class="giphy-embed" allowFullScreen style="pointer-events: none;"></iframe>
                         </div>
                     </div>
 

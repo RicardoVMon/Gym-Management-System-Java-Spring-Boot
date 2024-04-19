@@ -30,14 +30,15 @@
             <div class="col d-flex align-items-center">
                 <div class="container-fluid d-flex flex-column">
                     <form class="pb-5 border-bottom px-5" th:action="@{/login}" method="POST">
+                        <div class="text-center fs-4" th:text="${mensaje}"></div>
                         <div class="text-center fw-bold" style="font-size: 10vh; color: #ffffff;">Legends Workout</div>
                         <h2 class="mb-5 text-center" style="color: #a9f41e;">Login de Usuario</h2>
                         <div class="form-group form-floating mb-4">
-                            <input type="text" class="form-control bg-dark text-white" placeholder="Correo" name="username" id="username"/>
+                            <input type="text" class="form-control bg-dark text-white" placeholder="Correo" name="username" id="username" required="true"/>
                             <label class="form-label" style="color: #ffffff;">Nombre de usuario</label>
                         </div>
                         <div class="form-group form-floating mb-4">
-                            <input type="password" class="form-control bg-dark text-white" placeholder="Contraseña" name="password" id="password" />
+                            <input type="password" class="form-control bg-dark text-white" placeholder="Contraseña" name="password" id="password" required="true"/>
                             <label class="form-label" style="color: #ffffff;">Contraseña</label>
                         </div>
                         <div class="form-group text-center">
