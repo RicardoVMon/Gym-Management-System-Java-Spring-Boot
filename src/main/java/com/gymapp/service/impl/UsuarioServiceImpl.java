@@ -1,14 +1,17 @@
 package com.gymapp.service.impl;
 
+import com.gymapp.dao.EjercicioRutinaDao;
+import com.gymapp.dao.MedidaDao;
 import com.gymapp.dao.RolDao;
+import com.gymapp.dao.RutinaDao;
 import com.gymapp.dao.UsuarioDao;
+import com.gymapp.domain.EjercicioRutina;
 import com.gymapp.domain.Rol;
+import com.gymapp.domain.Rutina;
 import com.gymapp.domain.Usuario;
-import com.gymapp.service.UsuarioDetailsService;
 import com.gymapp.service.UsuarioService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -20,7 +23,16 @@ public class UsuarioServiceImpl implements UsuarioService {
     UsuarioDao usuarioDao;
 
     @Autowired
-    private UsuarioDetailsService usuarioDetailsService;
+    RolDao rolDao;
+
+    @Autowired
+    RutinaDao rutinaDao;
+
+    @Autowired
+    EjercicioRutinaDao ejercicioRutinaDao;
+    
+    @Autowired
+    MedidaDao medidaDao;
 
     @Override
     public List<Usuario> encontrarUsuarioPorRolUsuario(String nombreRol) {
@@ -31,6 +43,28 @@ public class UsuarioServiceImpl implements UsuarioService {
     @Override
     @Transactional
     public void eliminarUsuario(Long idUsuario) {
+
+        // Eliminar el rol
+        rolDao.deleteByIdUsuario(idUsuario);
+
+        // Eliminar las rutinas
+        List<Rutina> rutinas = rutinaDao.findByUsuario(usuarioDao.findById(idUsuario).orElse(null));
+        for (Rutina rutina : rutinas) {
+            // Eliminar los ejercicios dentro de la rutina si los hay
+            List<EjercicioRutina> ejercicios = ejercicioRutinaDao.findByRutina(rutina);
+            if (!ejercicios.isEmpty()) {
+                for (EjercicioRutina ejercicio : ejercicios) {
+                    ejercicioRutinaDao.delete(ejercicio);
+                }
+            }
+            // Eliminar la rutina
+            rutinaDao.delete(rutina);
+        }
+
+        // Eliminar las medidas
+        medidaDao.deleteByUsuario(usuarioDao.findById(idUsuario).orElse(null));
+        
+        // Eliminar el usuario
         usuarioDao.deleteById(idUsuario);
     }
 
@@ -38,9 +72,6 @@ public class UsuarioServiceImpl implements UsuarioService {
     public Usuario encontrarUsuarioPorId(Long idUsuario) {
         return usuarioDao.findById(idUsuario).orElse(null);
     }
-
-    @Autowired
-    RolDao rolDao;
 
     @Override
     public int save(Usuario usuario) {
