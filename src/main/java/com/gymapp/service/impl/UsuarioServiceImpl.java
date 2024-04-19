@@ -49,7 +49,7 @@ public class UsuarioServiceImpl implements UsuarioService {
                 || usuarioDao.findByEmail(usuario.getEmail()) != null) {
             return 0;
         }
-        // Guardar el nuevo usuario en la base de datos
+
         var codigo = new BCryptPasswordEncoder();
         usuario.setPassword(codigo.encode(usuario.getPassword()));
         usuarioDao.save(usuario);

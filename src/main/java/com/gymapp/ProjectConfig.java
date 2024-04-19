@@ -71,7 +71,7 @@ public class ProjectConfig implements WebMvcConfigurer {
         http
                 .authorizeHttpRequests((request) -> request
                 .requestMatchers("/login", "/registro", "/registrar",
-                        "/js/**", "/webjars/**", "/static/css/**")
+                        "/webjars/**", "/static/**")
                 .permitAll()
                 .requestMatchers("/", "/index", "/error").hasAnyRole("ADMIN", "USER")
                 .requestMatchers(

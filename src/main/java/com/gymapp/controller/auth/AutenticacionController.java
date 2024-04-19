@@ -32,8 +32,13 @@ public class AutenticacionController {
         int estado = usuarioService.save(usuario);
 
         if (estado == 0) {
+            String mensaje = "Ha ocurrido un error, el nombre de usuario o correo ya está registrado";
+            model.addAttribute("mensaje", mensaje);
             return "/autenticacion/registro";
         } else {
+            String mensaje = "Usuario creado exitosamente. "
+                    + "Por favor inicie sesión con sus credenciales para comenzar.";
+            model.addAttribute("mensaje", mensaje);
             return "/autenticacion/login";
         }
 
