@@ -26,12 +26,12 @@
 
             <ul class="navbar-nav col-md-2">
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" th:text="#{generales.idioma}">
-                        Idioma
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                       [[#{navbar.idioma}]]
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" th:href="@{/(lang=es)}" th:text="#{generales.idiomaEsp}">Español</a></li>
-                        <li><a class="dropdown-item" th:href="@{/(lang=en)}" th:text="#{generales.idiomaIng}">Inglés</a></li>
+                        <li><a class="dropdown-item" th:href="@{/(lang=es)}">[[#{navbar.idioma.espanol}]]</a></li>
+                        <li><a class="dropdown-item" th:href="@{/(lang=en)}">[[#{navbar.idioma.ingles}]]</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown me-1">
@@ -42,7 +42,7 @@
                     <ul class="dropdown-menu">
                         <li>
                             <form method="post" th:action="@{/logout}" class="d-inline">
-                                <button type="submit" class="dropdown-item" th:text="#{generales.cerrarSesion}">Cerrar Sesión</button>
+                                <button type="submit" class="dropdown-item">[[#{navbar.logout}]]</button>
                             </form>
                         </li>
                     </ul>
@@ -70,22 +70,22 @@
 
                     <a th:href="@{/}" class="card">
                         <i class="fa-solid fa-house"></i>
-                        <span th:text="#{generales.Inicio}">Inicio</span>
+                        <span>[[#{sidebar.inicio}]]</span>
                     </a>
 
                     <a th:href="@{/user/rutinas}" class="card">
                         <i class="fas fa-dumbbell"></i>
-                        <span th:text="#{generales.misrutinas}">Mis Rutinas</span>
+                        <span>[[#{sidebar.user.rutinas}]]</span>
                     </a>
 
                     <a th:href="@{/user/estiramientos}" class="card">
                         <i class="fa-solid fa-child-reaching"></i>
-                        <span th:text="#{generales.estiramientos}">Estiramientos</span>
+                        <span>[[#{sidebar.user.estiramientos}]]</span>
                     </a>
 
                     <a th:href="@{/user/medidas}" class="card">
                         <i class="fas fa-ruler"></i>
-                        <span th:text="#{generales.mismedidas}">Mis Medidas</span>
+                        <span>[[#{sidebar.user.medidas}]]</span>
                     </a>
                 </div>
 
@@ -94,22 +94,22 @@
 
                     <a th:href="@{/}" class="card">
                         <i class="fa-solid fa-house"></i>
-                        <span th:text="#{generales.Inicio}">Inicio</span>
+                        <span>[[#{sidebar.inicio}]]</span>
                     </a>
 
                     <a th:href="@{/admin/rutinas}" class="card">
                         <i class="fa-regular fa-calendar"></i>
-                        <span th:text="#{generales.rutinas}">Rutinas</span>
+                        <span>[[#{sidebar.admin.rutinas}]]</span>
                     </a>
 
                     <a th:href="@{/admin/usuarios}" class="card">
                         <i class="fa-solid fa-users"></i>
-                        <span th:text="#{generales.usuarios}">Usuarios</span>
+                        <span>[[#{sidebar.admin.usuarios}]]</span>
                     </a>
 
                     <a th:href="@{/admin/ejercicios}" class="card">
                         <i class="fas fa-dumbbell"></i>
-                        <span th:text="#{generales.ejercicios}">Ejercicios</span>
+                        <span>[[#{sidebar.admin.ejercicios}]]</span>
                     </a>
                 </div>
 

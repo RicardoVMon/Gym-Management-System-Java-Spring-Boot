@@ -32,22 +32,22 @@
                     <form class="pb-5 border-bottom px-5" th:action="@{/login}" method="POST">
                         <div class="text-center fs-4" th:text="${mensaje}"></div>
                         <div class="text-center fw-bold" style="font-size: 10vh; color: #ffffff;">Legends Workout</div>
-                        <h2 class="mb-5 text-center" style="color: #a9f41e;">Login de Usuario</h2>
+                        <h2 class="mb-5 text-center" style="color: #a9f41e;">[[#{login.header}]]</h2>
                         <div class="form-group form-floating mb-4">
                             <input type="text" class="form-control bg-dark text-white" placeholder="Correo" name="username" id="username" required="true"/>
-                            <label class="form-label" style="color: #ffffff;">Nombre de usuario</label>
+                            <label class="form-label" style="color: #ffffff;">[[#{login.username}]]</label>
                         </div>
                         <div class="form-group form-floating mb-4">
                             <input type="password" class="form-control bg-dark text-white" placeholder="Contraseña" name="password" id="password" required="true"/>
-                            <label class="form-label" style="color: #ffffff;">Contraseña</label>
+                            <label class="form-label" style="color: #ffffff;">[[#{login.password}]]</label>
                         </div>
                         <div class="form-group text-center">
                             <button type="submit" class="btn btn-primary btn-lg" style="border-color: #a9f41e; background-color: #343a40; color: #ffffff;">
-                                Iniciar Sesión
+                                [[#{login.button}]]
                             </button>
                         </div>
                     </form>
-                    <a class="mt-4 text-center under" th:href="@{/registro}" style="color: #ffffff;">¿No tenés Cuenta? <br> ¡Crea una ya! </a>
+                    <a class="mt-4 text-center under" th:href="@{/registro}" style="color: #ffffff;">[[#{login.signup1}]]<br>[[#{login.signup2}]]</a>
                 </div>
             </div>
         </section>
