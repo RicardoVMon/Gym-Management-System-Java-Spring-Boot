@@ -11,11 +11,11 @@
     <section class="contenido-pagina bg-dark text-light" style="min-height: 94.2vh;">
 
         <div class="mt-3" style="max-width: 50%">
-            <p class="border-bottom border-2 mx-5 mb-0 p-3 pb-2 fs-5" th:text="#{rutinasUsuarioRutina.titulo}">Modifique los ejercicios, series y repeticiones</p>
+            <p class="border-bottom border-2 mx-5 mb-0 p-3 pb-2 fs-5">[[#{admin.rutinas.usuario.rutina.header}]]</p>
         </div>
 
         <div class="mt-3" style="max-width: 50%">
-            <p class="fs-1 fw-bold mx-5" th:text="${rutina.nombre}">Nombre de Rutina</p>
+            <p class="fs-1 fw-bold mx-5" th:text="${rutina.nombre}"></p>
         </div>
 
         <div class="container-fluid p-5 pt-1">
@@ -23,16 +23,16 @@
             <!-- Cada row va a ser un ejercicio, que contiene una tabla de series dentro -->
             <div th:if="${ejercicios != null and !ejercicios.empty}" class="row" th:each="ejercicio : ${ejercicios}">
                 <div class="col mb-4">
-                    <p class="fw-bold fs-3" th:text="${ejercicio.ejercicio.nombre}">Nombre de Ejercicio</p>
+                    <p class="fw-bold fs-3" th:text="${ejercicio.ejercicio.nombre}"></p>
                     <table class="table text-light text-center">
                         <thead class="bg-light text-dark">
                             <tr>
                                 <th></th>
-                                <th th:text="#{rutinasUsuarioRutina.series}">Series</th>
+                                <th>[[#{admin.rutinas.usuario.rutina.series}]]</th>
                                 <th></th>
-                                <th th:text="#{rutinasUsuarioRutina.repeticiones}">Repeticiones</th>
-                                <th th:text="#{rutinasUsuarioRutina.pesoPrevio}">Peso Previo</th>
-                                <th th:text="#{rutinasUsuarioRutina.pesoActual}">Peso actual</th>
+                                <th>[[#{admin.rutinas.usuario.rutina.reps}]]</th>
+                                <th>[[#{admin.rutinas.usuario.rutina.peso1}]]</th>
+                                <th>[[#{admin.rutinas.usuario.rutina.peso2}]]</th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -79,13 +79,13 @@
             <!-- Cada row va a ser un ejercicio, que contiene una tabla de series dentro -->
             <div th:if="${ejercicios.empty}" class="row justify-content-center align-items-center">
                 <div class="col mb-4 text-center">
-                    <p class="fs-1 mx-auto" style="max-width: 50%;">¡Vaya! Parece que no hay ejercicios. ¡Haz clic en el <span class="fw-bold">botón de agregar</span> para comenzar!</p>
+                    <p class="fs-1 mx-auto" style="max-width: 50%;">[[#{admin.rutinas.usuario.rutina.error}]]</p>
                      <iframe src="https://giphy.com/embed/CM1rHbKDMH2BW" width="240" height="180" frameBorder="0" class="giphy-embed" allowFullScreen style="pointer-events: none;"></iframe>
                 </div>
             </div>
 
             <div class="container w-50">
-                <a th:href="'/admin/rutinas/usuario/rutina/' + ${rutina.idRutina} + '/agregar/'" class="btn btn-primary fs-4 fw-bold w-100" th:text="#{rutinasUsuarioRutina.agregarEjercicio}">Agregar ejercicio</a>
+                <a th:href="'/admin/rutinas/usuario/rutina/' + ${rutina.idRutina} + '/agregar/'" class="btn btn-primary fs-4 fw-bold w-100">[[#{admin.rutinas.usuario.rutina.error.button}]]</a>
             </div>
 
         </div>

@@ -2,6 +2,7 @@ package com.gymapp.service;
 
 import com.gymapp.domain.Usuario;
 import java.util.List;
+import org.springframework.security.core.userdetails.UserDetails;
 
 public interface UsuarioService {
 
@@ -10,4 +11,6 @@ public interface UsuarioService {
     public void eliminarUsuario(Long idUsuario);
 
     public Usuario encontrarUsuarioPorId(Long idUsuario);
+    
+    public int save(Usuario usuario);
 }

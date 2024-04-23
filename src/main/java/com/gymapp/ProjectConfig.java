@@ -70,8 +70,8 @@ public class ProjectConfig implements WebMvcConfigurer {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests((request) -> request
-                .requestMatchers("/login", "/registro",
-                        "/js/**", "/webjars/**", "/static/css/**")
+                .requestMatchers("/login", "/registro", "/registrar",
+                        "/webjars/**", "/static/**")
                 .permitAll()
                 .requestMatchers("/", "/index", "/error").hasAnyRole("ADMIN", "USER")
                 .requestMatchers(

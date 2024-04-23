@@ -35,7 +35,9 @@ public class UsuarioDetailsServiceImpl implements UsuarioDetailsService, UserDet
         }
 
         session.removeAttribute("id");
+        session.removeAttribute("usuarioNombre");
         session.setAttribute("id", usuario.getIdUsuario());
+        session.setAttribute("usuarioNombre", usuario.getNombre() + " " + usuario.getApellidos());
         
         var roles = new ArrayList<GrantedAuthority>();
         for (Rol rol : usuario.getRoles()) {

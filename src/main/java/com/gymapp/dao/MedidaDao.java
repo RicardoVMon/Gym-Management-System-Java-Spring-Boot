@@ -9,8 +9,10 @@ import org.springframework.data.jpa.repository.support.JpaRepositoryImplementati
 public interface MedidaDao extends JpaRepositoryImplementation<Medida, Long> {
 
     Medida findByUsuario(Usuario usuario);
-    
+
     @Query("SELECT m FROM Medida m WHERE m.usuario.idUsuario = ?1")
     Medida findByIdUsuario(Long idUsuario);
-    
+
+    void deleteByUsuario(Usuario usuario);
+
 }

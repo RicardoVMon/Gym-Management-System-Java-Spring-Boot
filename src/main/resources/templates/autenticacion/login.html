@@ -13,12 +13,12 @@
         <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
     </head>
 
-    <body class="d-flex flex-column min-vh-100">
+    <body class="bg-dark text-white d-flex flex-column min-vh-100">
 
-        <nav class="navbar bg-dark navbar-dark navbar-extend p-2">
+        <nav class="navbar bg-dark navbar-dark navbar-extend p-2" style="border-bottom: 1px solid greenyellow;">
             <div class="container-fluid">
                 <a class="navbar-brand fs-4 fw-bold" th:href="@{/}">
-                    <i class="fa-solid fa-dumbbell mx-2"></i> Work Hard, Gain Hard
+                    <i class="fa-solid fa-dumbbell mx-2"></i> <span style="color: #a9f41e;">Work Hard, Gain Hard</span>
                 </a>
             </div>
         </nav>
@@ -30,23 +30,24 @@
             <div class="col d-flex align-items-center">
                 <div class="container-fluid d-flex flex-column">
                     <form class="pb-5 border-bottom px-5" th:action="@{/login}" method="POST">
-                        <div class="text-center fw-bold" style="font-size: 10vh">Legends Workout</div>
-                        <h2 class="mb-5 text-center" th:text="#{login.loginUsuario}">Login de Usuario</h2>
+                        <div class="text-center fs-4" th:text="${mensaje}"></div>
+                        <div class="text-center fw-bold" style="font-size: 10vh; color: #ffffff;">Legends Workout</div>
+                        <h2 class="mb-5 text-center" style="color: #a9f41e;">[[#{login.header}]]</h2>
                         <div class="form-group form-floating mb-4">
-                            <input type="text" class="form-control" placeholder="Correo" name="username" id="username"/>
-                            <label class="form-label" th:text="#{login.username}">Nombre de usuario</label>
+                            <input type="text" class="form-control bg-dark text-white" placeholder="Correo" name="username" id="username" required="true"/>
+                            <label class="form-label" style="color: #ffffff;">[[#{login.username}]]</label>
                         </div>
                         <div class="form-group form-floating mb-4">
-                            <input type="password" class="form-control" placeholder="Contraseña" name="password" id="password" />
-                            <label class="form-label"th:text="#{login.password}">Contraseña</label>
+                            <input type="password" class="form-control bg-dark text-white" placeholder="Contraseña" name="password" id="password" required="true"/>
+                            <label class="form-label" style="color: #ffffff;">[[#{login.password}]]</label>
                         </div>
                         <div class="form-group text-center">
-                            <button type="submit" class="btn btn-primary btn-lg" th:text="#{login.inicioSesion}">
-                                Iniciar Sesión
+                            <button type="submit" class="btn btn-primary btn-lg" style="border-color: #a9f41e; background-color: #343a40; color: #ffffff;">
+                                [[#{login.button}]]
                             </button>
                         </div>
                     </form>
-                    <a class="mt-4 text-center under" th:href="@{/registro}" th:text="#{login.registrarse}">¿No tenés Cuenta? <br> ¡Crea una ya! </a>
+                    <a class="mt-4 text-center under" th:href="@{/registro}" style="color: #ffffff;">[[#{login.signup1}]]<br>[[#{login.signup2}]]</a>
                 </div>
             </div>
         </section>
