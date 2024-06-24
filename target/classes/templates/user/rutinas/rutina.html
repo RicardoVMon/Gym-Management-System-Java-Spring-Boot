@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+    <head th:replace="~{layout/fragmentos-generales :: head}"></head>
+
+    <body class="bg-dark text-white d-flex flex-column min-vh-100">
+
+        <section th:replace="~{layout/fragmentos-generales :: navbar}"></section>
+        <section th:replace="~{layout/fragmentos-generales :: sidebar}"></section>  
+
+        <section class="contenido-pagina bg-dark text-light" style="min-height: 94.2vh; background-color: #343434;">
+
+            <div class="mt-3 " style="max-width: 50%">
+                <p class="border-bottom border-2 mx-5 mb-0 p-3 pb-2 fs-5">[[#{user.rutinas.rutina.header}]]</p>
+            </div>
+
+            <div class="mt-3 " style="max-width: 50%">
+                <p class="fs-1 fw-bold mx-5" th:text="${rutina.nombre}"></p>
+            </div>
+
+            <div class="container-fluid p-5 pt-1">
+
+                <!--Cada row va a ser un ejercicio, que contiene una tabla de series dentro-->
+                <div class="row" th:each="ejercicio : ${ejercicios}">
+                    <div class="col mb-4">
+                        <p class="fw-bold fs-3" th:text="${ejercicio.ejercicio.nombre}"></p>
+                        <table class="table text-light text-center">
+                            <thead class="bg-light text-dark">
+                                <tr>
+                                    <th></th>
+                                    <th>[[#{user.rutinas.rutina.series}]]</th>
+                                    <th></th>
+                                    <th>[[#{user.rutinas.rutina.reps}]]</th>
+                                    <th>[[#{user.rutinas.rutina.peso1}]]</th>
+                                    <th>[[#{user.rutinas.rutina.peso2}]]</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!--Este row va a iterar por cada serie que haya--> 
+                                <tr>
+                                    <td>
+                                        <div class="container px-0"></div>
+                                    </td>
+
+                                    <!--Estos puede modificarlo el usuario-->
+                                    <form th:action="'/user/rutinas/rutina/' + ${rutina.idRutina} + '/actualizar/' + ${ejercicio.idEjercicioRutina}"  th:object="${ejercicioRutina}" method="POST">
+                                            <input type="hidden" class="form-control" th:value="${ejercicio.idEjercicioRutina}" min="1" name="idEjercicioRutina">
+                                            <input type="hidden" class="form-control" th:value="${ejercicio.ejercicio.idEjercicio}" min="1" name="ejercicio.idEjercicio">
+                                            <input type="hidden" class="form-control" th:value="${ejercicio.rutina.idRutina}" min="1" name="rutina.idRutina">
+                                            <td>
+                                                <input readonly="true" type="text" class="form-control text-secondary" th:value="${ejercicio.series}" min="1" name="series">
+                                            </td>
+                                            <td>x</td>
+                                            <td>
+                                                <input readonly="true" type="text" class="form-control text-secondary" th:value="${ejercicio.repeticiones}" min="1" name="repeticiones">
+                                            </td>
+                                            <td>
+                                                <input type="readonly" class="form-control" th:value="${ejercicio.pesoPrevio}" name="pesoPrevio">
+                                            </td>
+                                            <td>
+                                                <input type="readonly" class="form-control" th:value="${ejercicio.pesoActual}" name="pesoActual">
+                                            </td>
+                                            <td>
+                                                <button type="submit" class="btn btn-success"><i class="fa-solid fa-check"></i></button>
+                                            </td>
+                                    </form>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </body>
+
+</html>

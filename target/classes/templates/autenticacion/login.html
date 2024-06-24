@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <title>Gym App</title>
+        <meta charset="UTF-8" />
+        <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
+        <link th:href="@{/webjars/font-awesome/css/all.css}" rel="stylesheet"/>
+        <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+        <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+        <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+    </head>
+
+    <body class="bg-dark text-white d-flex flex-column min-vh-100">
+
+        <nav class="navbar bg-dark navbar-dark navbar-extend p-2" style="border-bottom: 1px solid greenyellow;">
+            <div class="container-fluid">
+                <a class="navbar-brand fs-4 fw-bold" th:href="@{/}">
+                    <i class="fa-solid fa-dumbbell mx-2"></i> <span style="color: #a9f41e;">Work Hard, Gain Hard</span>
+                </a>
+            </div>
+        </nav>
+
+        <section class="container-fluid d-flex flex-grow-1 px-0">
+            <div class="col">
+                <img src="https://www.dexeus.com/blog/wp-content/uploads/2019/11/shutterstock_1495916660.jpg" class="img-fluid" style="object-fit: cover; height: 100%">
+            </div>
+            <div class="col d-flex align-items-center">
+                <div class="container-fluid d-flex flex-column">
+                    <form class="pb-5 border-bottom px-5" th:action="@{/login}" method="POST">
+                        <div class="text-center fs-4" th:text="${mensaje}"></div>
+                        <div class="text-center fw-bold" style="font-size: 10vh; color: #ffffff;">Legends Workout</div>
+                        <h2 class="mb-5 text-center" style="color: #a9f41e;">[[#{login.header}]]</h2>
+                        <div class="form-group form-floating mb-4">
+                            <input type="text" class="form-control bg-dark text-white" placeholder="Correo" name="username" id="username" required="true"/>
+                            <label class="form-label" style="color: #ffffff;">[[#{login.username}]]</label>
+                        </div>
+                        <div class="form-group form-floating mb-4">
+                            <input type="password" class="form-control bg-dark text-white" placeholder="Contraseña" name="password" id="password" required="true"/>
+                            <label class="form-label" style="color: #ffffff;">[[#{login.password}]]</label>
+                        </div>
+                        <div class="form-group text-center">
+                            <button type="submit" class="btn btn-primary btn-lg" style="border-color: #a9f41e; background-color: #343a40; color: #ffffff;">
+                                [[#{login.button}]]
+                            </button>
+                        </div>
+                    </form>
+                    <a class="mt-4 text-center under" th:href="@{/registro}" style="color: #ffffff;">[[#{login.signup1}]]<br>[[#{login.signup2}]]</a>
+                </div>
+            </div>
+        </section>
+
+    </body>
+
+</html>

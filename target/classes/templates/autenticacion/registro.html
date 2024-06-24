@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Gym App</title>
+        <meta charset="UTF-8" />
+        <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
+        <link th:href="@{/webjars/font-awesome/css/all.css}" rel="stylesheet"/>
+        <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+        <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+        <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+    </head>
+    
+    <body class="bg-dark text-white d-flex flex-column min-vh-100">
+
+        <nav class="navbar bg-dark navbar-dark navbar-extend p-2" style="border-bottom: 1px solid greenyellow;">
+            <div class="container-fluid">
+                <a class="navbar-brand fs-4 fw-bold" th:href="@{/}">
+                    <i class="fa-solid fa-dumbbell mx-2"></i> <span style="color: #a9f41e;">Work Hard, Gain Hard</span>
+                </a>
+            </div>
+        </nav>
+
+        <section class="container-fluid d-flex flex-grow-1 px-0">
+            <div class="col">
+                <img src="https://images.pexels.com/photos/841130/pexels-photo-841130.jpeg" class="img-fluid" style="object-fit: cover; height: 100%">
+            </div>
+            <div class="col d-flex align-items-center">
+                <div class="container-fluid d-flex flex-column">
+                    
+                    <form class="pb-4 px-5 border-bottom" th:action="@{/registrar}" method="POST" th:object="${usuario}">
+                        <div class="text-center fs-4" th:text="${mensaje}"></div>
+                        <div class="text-center fw-bold" style="font-size: 10vh; color: #ffffff;">Legends Workout</div>
+                        <h2 class="mb-5 text-center" style="color: #a9f41e;">[[#{registro.header}]]</h2>
+                        <div class="row mb-3">
+                            <div class="col">
+                                <div class="form-group form-floating">
+                                    <input type="text" class="form-control bg-dark text-white" placeholder="Nombre" name="username" required="true"/>
+                                    <label class="form-label" style="color: #ffffff;">[[#{registro.username}]]</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-4">
+                                <div class="form-group form-floating">
+                                    <input type="text" class="form-control bg-dark text-white" placeholder="Nombre" name="nombre" required="true"/>
+                                    <label class="form-label" style="color: #ffffff;">[[#{registro.nombre}]]</label>
+                                </div>
+                            </div>
+                            <div class="col-8">
+                                <div class="form-group form-floating">
+                                    <input type="text" class="form-control bg-dark text-white" placeholder="Apellidos" name="apellidos" required="true"/>
+                                    <label class="form-label" style="color: #ffffff;">[[#{registro.apellidos}]]</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-7">
+                                <div class="form-group form-floating">
+                                    <input type="text" class="form-control bg-dark text-white" placeholder="Correo" name="email" required="true"/>
+                                    <label class="form-label" style="color: #ffffff;">[[#{registro.correo}]]</label>
+                                </div>
+                            </div>
+                            <div class="col-5">
+                                <div class="form-group form-floating">
+                                    <select id="gender" class="form-control bg-dark text-white" name="genero" required="true">
+                                        <option value="" selected disabled style="color: #ffffff;">[[#{registro.genero.dropdown}]]</option>
+                                        <option value="Masculino" style="color: #ffffff;">[[#{registro.genero.masc}]]</option>
+                                        <option value="Femenino" style="color: #ffffff;">[[#{registro.genero.fem}]]</option>
+                                        <option value="Otro" style="color: #ffffff;">[[#{registro.genero.otro}]]</option>
+                                        <option value="Otro" style="color: #ffffff;">[[#{registro.genero.na}]]</option>
+                                    </select>
+                                    <label for="gender" class="form-label" style="color: #ffffff;">[[#{registro.genero}]]</label>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="form-group form-floating mb-4">
+                            <input type="password" class="form-control bg-dark text-white" placeholder="Contraseña" name="password" required="true"/>
+                            <label class="form-label" style="color: #ffffff;">[[#{registro.password}]]</label>
+                        </div>
+                        <div class="form-group text-center">
+                            <button type="submit" class="btn btn-primary btn-lg" style="border-color: #a9f41e; background-color: #343a40; color: #ffffff;">
+                                [[#{registro.button}]]
+                            </button>
+                        </div>
+                    </form>
+                    <a class="mt-3 text-center under" th:href="@{/}" style="color: #ffffff;">[[#{registro.signin1}]]<br>[[#{registro.signin2}]]</a>
+                </div>
+            </div>
+        </section>
+    </body>
+</html>

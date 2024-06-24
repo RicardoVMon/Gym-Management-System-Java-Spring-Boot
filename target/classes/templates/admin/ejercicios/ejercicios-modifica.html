@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{layout/fragmentos-generales :: head}">
+    <title>Lista de Ejercicios</title>
+</head>
+<body class="bg-dark text-white d-flex flex-column min-vh-100">
+<section th:replace="~{layout/fragmentos-generales :: navbar}"></section>
+<section th:replace="~{layout/fragmentos-generales :: sidebar}"></section>
+
+<div class="contenido-pagina bg-dark, container-fluid d-flex flex-grow-1 px-0"  >
+    <div class="container py-3">
+        <div class="row">
+            <div class="col d-flex align-items-center">
+                <h2 style="color: #a9f41e;">[[#{admin.ejercicios.modifica.title}]]</h2>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <form method="POST" th:action="@{/admin/ejercicios/agregar}" th:object="${ejercicio}">
+                    <div class="card bg-dark text-white">
+                        <div class="card-header">
+                            <h4 class="mb-0">[[#{admin.ejercicios.modifica.header}]]</h4>
+                        </div>
+                        <div class="card-body ">
+                            <div class="form-group">
+                                <input type="hidden" class="form-control" th:value="${ejercicio.idEjercicio}" name="idEjercicio">
+                                <label for="descripcion" style="color: #a9f41e;">[[#{admin.ejercicios.modifica.nombre}]]</label>
+                                <input type="text" class="form-control" name="nombre" th:value="${ejercicio.nombre}" required="true">
+                            </div>
+                            <br>
+                            <button type="submit" class="btn btn-success" style="margin-left: 738px";>[[#{admin.ejercicios.modifica.button}]]</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

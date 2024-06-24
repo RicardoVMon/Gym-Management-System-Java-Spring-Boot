@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="~{layout/fragmentos-generales :: head}">
+        <title>Lista de Ejercicios</title>
+    </head>
+    <body class="bg-dark text-white d-flex flex-column min-vh-100">
+        <section th:replace="~{layout/fragmentos-generales :: navbar}"></section>
+        <section th:replace="~{layout/fragmentos-generales :: sidebar}"></section>  
+
+        <div class="contenido-pagina bg-dark">
+            <div class="row p-3">
+                <div class="col">
+                    <h2 style="color: #a9f41e;">[[#{admin.rutinas.usuario.rutina.agregar.title}]]</h2>
+                </div>
+                <div class="col">
+                    <!-- <form class="d-flex justify-content-end" style="color:#a9f41e;" role="search"> 
+                         <div class="input-group">
+                             <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar">
+                                 <button class="btn btn-outline-secondary" style="color: #a9f41e" type="submit">Buscar</button>
+                         </div>
+                     </form>-->
+                </div>
+            </div>
+
+            <div class="container">
+                <table class="table table-dark mt-5"> 
+                    <thead>
+                        <tr>
+                            <th class="fs-1">[[#{admin.rutinas.usuario.rutina.agregar.header}]]</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="ejercicio : ${listaEjercicios}">
+                            <td th:text="${ejercicio.nombre}"></td>
+                            <td class="text-end">
+                                <div class="d-flex justify-content-end">
+                                    <!-- Botón para editar ejercicio -->
+                                    <a th:href="'/admin/rutinas/usuario/rutina/' + ${idRutina} + '/agregar/' + ${ejercicio.idEjercicio}" class="btn btn-success btn-sm me-1">
+                                        <i class="fa-solid fa-plus"></i> 
+                                        <span>[[#{admin.rutinas.usuario.rutina.agregar.button}]]</span>
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </body>
+</html>
+

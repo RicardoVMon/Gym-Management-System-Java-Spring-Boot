@@ -1,0 +1,8 @@
+/*Estilos para posicionar contenedor de contenido principal*/
+.contenido-pagina {
+    display: flex;
+    flex-direction: column;
+    margin-top: 56px;
+    padding-left: 250px;
+    width: 100%;
+}

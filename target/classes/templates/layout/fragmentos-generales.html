@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+    <head th:fragment="head">
+        <title>Gym App</title>
+        <meta charset="UTF-8" />
+        <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
+        <link th:href="@{/webjars/font-awesome/css/all.css}" rel="stylesheet"/>
+        <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+        <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+        <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+        <link th:href="@{/static/css/estilosBarras.css}" rel="stylesheet" type="text/css"/>
+        <link th:href="@{/static/css/estilosGenerales.css}" rel="stylesheet" type="text/css"/>
+        <script th:src="@{/static/js/mostrarHora.js}" type="text/javascript"></script>
+
+    </head>
+
+    <body>
+
+        <!-- Navbar Horizontal -->
+        <section th:fragment="navbar" class="navbar navbar-dark navbar-expand justify-content-around navbarInicio" style="z-index: 100;">
+
+            <div class="text-center fw-bold col-md-10"><span id="hora-actual"></span></div>
+
+            <ul class="navbar-nav col-md-2">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                       [[#{navbar.idioma}]]
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" th:href="@{/(lang=es)}">[[#{navbar.idioma.espanol}]]</a></li>
+                        <li><a class="dropdown-item" th:href="@{/(lang=en)}">[[#{navbar.idioma.ingles}]]</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown me-1">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+
+                        <i class="fas fa-user"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <form method="post" th:action="@{/logout}" class="d-inline">
+                                <button type="submit" class="dropdown-item">[[#{navbar.logout}]]</button>
+                            </form>
+                        </li>
+                    </ul>
+                </li>
+                <li class="d-flex align-items-center">
+                    <p class="m-0 p-0 nav-link" th:text="@{${session.usuarioNombre}}"></p>
+                </li>
+
+            </ul>
+
+        </section>
+
+        <!--Sidebar vertical estandarizado a para cada rol-->
+        <section  th:fragment="sidebar" class="container sidebar">
+
+            <div class="row row-sidebar">
+
+                <div class="sidebar-header">
+                    <h3>Legends Workout Tracker</h3>
+                    <hr class="sidebar-hr">
+                </div>
+
+                <!-- Funcionalidades Específicas al Usuario -->
+                <div class="sidebar-links" sec:authorize="hasRole('ROLE_USER')">
+
+                    <a th:href="@{/}" class="card">
+                        <i class="fa-solid fa-house"></i>
+                        <span>[[#{sidebar.inicio}]]</span>
+                    </a>
+
+                    <a th:href="@{/user/rutinas}" class="card">
+                        <i class="fas fa-dumbbell"></i>
+                        <span>[[#{sidebar.user.rutinas}]]</span>
+                    </a>
+
+                    <a th:href="@{/user/estiramientos}" class="card">
+                        <i class="fa-solid fa-child-reaching"></i>
+                        <span>[[#{sidebar.user.estiramientos}]]</span>
+                    </a>
+
+                    <a th:href="@{/user/medidas}" class="card">
+                        <i class="fas fa-ruler"></i>
+                        <span>[[#{sidebar.user.medidas}]]</span>
+                    </a>
+                </div>
+
+                <!--Funcionalidades específicas al Admin-->
+                <div class="sidebar-links" sec:authorize="hasRole('ROLE_ADMIN')">
+
+                    <a th:href="@{/}" class="card">
+                        <i class="fa-solid fa-house"></i>
+                        <span>[[#{sidebar.inicio}]]</span>
+                    </a>
+
+                    <a th:href="@{/admin/rutinas}" class="card">
+                        <i class="fa-regular fa-calendar"></i>
+                        <span>[[#{sidebar.admin.rutinas}]]</span>
+                    </a>
+
+                    <a th:href="@{/admin/usuarios}" class="card">
+                        <i class="fa-solid fa-users"></i>
+                        <span>[[#{sidebar.admin.usuarios}]]</span>
+                    </a>
+
+                    <a th:href="@{/admin/ejercicios}" class="card">
+                        <i class="fas fa-dumbbell"></i>
+                        <span>[[#{sidebar.admin.ejercicios}]]</span>
+                    </a>
+                </div>
+
+                <div class="sidebar-footer">
+                    <hr class="sidebar-hr">
+                        <p>
+                            <span>Legends Workout &#174;</span>
+                            <span>2024</span>
+                        </p> 
+                </div>
+
+            </div>
+
+        </section>
+
+    </body>
+
+</html>

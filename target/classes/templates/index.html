@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+    <head th:replace="~{layout/fragmentos-generales :: head}"></head>
+
+    <body class="bg-dark text-white d-flex flex-column min-vh-100">
+
+        <section th:replace="~{layout/fragmentos-generales :: navbar}"></section>
+        <section th:replace="~{layout/fragmentos-generales :: sidebar}"></section>
+
+        <section class="contenido-pagina bg-dark text-light d-flex flex-column justify-content-center align-items-center" style="min-height: 94.2vh;">
+            <div class="container text-center mt-5 mb-4"> 
+                <h1>[[#{home.header}]]</h1>
+
+                <!-- Funcionalidades Específicas al Usuario -->
+            <div class="d-flex flex-row justify-content-center mt-2" sec:authorize="hasRole('ROLE_USER')"> 
+                <div class="card bg-dark text-white border-0" style="width: 18rem; margin-right: 15px;">
+                    <svg class="bd-placeholder-img card-img-top" width="50%" height="50" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false">
+                        <title>[[#{home.user.rutinas}]]</title>
+                        <img src="https://images.pexels.com/photos/841130/pexels-photo-841130.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Mis Rutinas" style="width: 100%; height: 400px; object-fit: cover;">
+                    </svg>
+                    <div class="card-body">
+                        <h5 class="card-title">[[#{home.user.rutinas}]]</h5>
+                        <p class="card-text">[[#{home.user.rutinas.desc}]]</p>
+                        <a th:href="@{/user/rutinas}" class="btn btn-outline-secondary" style="color:#a9f41e; border-color: #a9f41e;">
+                            [[#{home.user.rutinas.button}]]
+                        </a>
+                    </div>
+                </div>
+
+                <div class="card bg-dark text-white border-0" style="width: 18rem; margin-right: 15px;">
+                    <svg class="bd-placeholder-img card-img-top" width="50%" height="50" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false">
+                        <title>[[#{home.user.estiramientos}]]</title>
+                        <img src="https://images.pexels.com/photos/3820441/pexels-photo-3820441.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Estiramientos" style="width: 100%; height: 400px; object-fit: cover;">
+                    </svg>
+                    <div class="card-body">
+                        <h5 class="card-title">[[#{home.user.estiramientos}]]</h5>
+                        <p class="card-text">[[#{home.user.estiramientos.desc}]]</p>
+                        <a th:href="@{/user/estiramientos}" class="btn btn-outline-secondary" style="color:#a9f41e; border-color: #a9f41e;">
+                            [[#{home.user.estiramientos.button}]]
+                        </a>
+                    </div>
+                </div>
+
+                <div class="card bg-dark text-white border-0" style="width: 19rem;">
+                    <svg class="bd-placeholder-img card-img-top" width="50%" height="50" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false">
+                        <title>[[#{home.user.medidas}]]</title>
+                        <img src="https://images.pexels.com/photos/3757376/pexels-photo-3757376.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Mis Medidas" style="width: 100%; height: 400px; object-fit: cover;">
+                    </svg>
+                    <div class="card-body">
+                        <h5 class="card-title">[[#{home.user.medidas}]]</h5>
+                        <p class="card-text">[[#{home.user.medidas.desc}]]</p>
+                        <a th:href="@{/user/medidas}" class="btn btn-outline-secondary" style="color:#a9f41e; border-color: #a9f41e;">
+                            [[#{home.user.medidas.button}]]
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+
+                <!-- Funcionalidades específicas al Admin -->
+                <div class="sidebar-links d-flex flex-row justify-content-center" sec:authorize="hasRole('ROLE_ADMIN')">
+                    <div class="card bg-dark text-white border-0" style="width: 18rem; margin-bottom: 15px; margin-right: 15px;">
+                        <svg class="bd-placeholder-img card-img-top" width="50%" height="50" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false">
+                            <title>[[#{home.admin.rutinas}]]</title>
+                            <img src="https://images.pexels.com/photos/14205037/pexels-photo-14205037.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Rutinas" style="width: 100%; height: 400px; object-fit: cover;">
+                        </svg>
+                        <div class="card-body">
+                            <h5 class="card-title">[[#{home.admin.rutinas}]]</h5>
+                            <p class="card-text">[[#{home.admin.rutinas.desc}]]</p>
+                            <a th:href="@{/admin/rutinas}" class="btn btn-outline-secondary" style="color:#a9f41e; border-color: #a9f41e;">
+                                <i class="" style="color:#a9f41e"></i> [[#{home.admin.rutinas.button}]]
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="card bg-dark text-white border-0" style="width: 18rem; margin-bottom: 15px; margin-right: 15px;">
+                        <svg class="bd-placeholder-img card-img-top" width="50%" height="50" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false">
+                            <title>[[#{home.admin.usuarios}]]</title>
+                            <img src="https://images.pexels.com/photos/1552249/pexels-photo-1552249.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Usuarios" style="width: 100%; height: 400px; object-fit: cover;">
+                        </svg>
+                        <div class="card-body">
+                            <h5 class="card-title">[[#{home.admin.usuarios}]]</h5>
+                            <p class="card-text">[[#{home.admin.usuarios.desc}]]</p>
+                            <a th:href="@{/admin/usuarios}" class="btn btn-outline-secondary" style="color:#a9f41e; border-color: #a9f41e;">
+                                <i class="" style="color:#a9f41e"></i> [[#{home.admin.usuarios.button}]]
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="card bg-dark text-white border-0" style="width: 18rem; margin-bottom: 15px;">
+                        <svg class="bd-placeholder-img card-img-top" width="50%" height="50" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false">
+                            <title>[[#{home.admin.ejercicios}]]</title>
+                            <img src="https://images.pexels.com/photos/414029/pexels-photo-414029.jpeg" alt="Ejercicios" style="width: 100%; height: 400px; object-fit: cover;">
+                        </svg>
+                        <div class="card-body">
+                            <h5 class="card-title">[[#{home.admin.ejercicios}]]</h5>
+                            <p class="card-text"> [[#{home.admin.ejercicios.desc}]]</p>
+                            <a th:href="@{/admin/ejercicios}" class="btn btn-outline-secondary" style="color:#a9f41e; border-color: #a9f41e;">
+                                <i class="" style="color:#a9f41e"></i> [[#{home.admin.ejercicios.button}]]
+                            </a>
+                        </div>
+                    </div>
+                </div>
+        </section>
+    </body>
+</html>

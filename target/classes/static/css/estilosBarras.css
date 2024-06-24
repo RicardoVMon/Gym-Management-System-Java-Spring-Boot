@@ -1,0 +1,93 @@
+/*---------------- Navbar ----------------*/
+/*Estilos generales*/
+.navbarInicio {
+    color: white;
+    background-color: #343434;
+    position: fixed;
+    top: 0;
+    right: 0; /* Mantenemos right en 0 */
+    left: 250px; /* Se suma el ancho del sidebar más un pequeño margen */
+    width: calc(100% - 250px); /* Se resta el ancho del sidebar más el margen del lado izquierdo */
+    border-bottom-style: solid;
+    border-bottom-color: #a9f41e;
+}
+
+.row-navbar {
+    width: calc(100% - 250px);
+    justify-content: space-between;
+    align-items: center;
+}
+
+/*Estilos para el contenido*/
+.navbar-icons {
+    font-size: 24px;
+    color: #ffffff;
+}
+
+.navbar-links p{
+    margin: 0;
+    color: #a9f41e;
+}
+
+.navbar-links a:hover .fa-regular,
+.navbar-links a:hover .fa-solid {
+    color: #a9f41e;
+}
+
+/*---------------- Sidebar ----------------*/
+/*Estilos generales*/
+.sidebar {
+    color: white;
+    background-color: #000000;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 250px;
+    padding: 20px;
+}
+
+.row-sidebar {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+/*Estilos para el encabezado*/
+.sidebar-header {
+    color: #a9f41e;
+}
+
+/*Estilos para los separadores*/
+.sidebar-hr {
+    color: #ffffff;
+}
+
+/*Estilos para los enlazes*/
+.sidebar-links {
+    font-size: 1.5rem;
+}
+
+.sidebar-links a {
+    text-decoration: none;
+    background-color: #343434;
+    color: #ffffff;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+.sidebar-links a:hover {
+    color: #a9f41e;
+}
+
+/*Estilos para el footer*/
+.sidebar-footer {
+    margin-top: auto;
+}
+
+.sidebar-footer p {
+    display: flex;
+    justify-content: space-between;
+    color: #a9f41e;
+}
