@@ -32,14 +32,14 @@ public class EjerciciosAdminController {
     @PostMapping("/ejercicios/editar/{idEjercicio}")  
     public String modificarEjercicio(Ejercicio ejercicio) {
         ejercicioService.saveEjercicio(ejercicio);
-        return "/admin/ejercicios/ejercicios-modifica";
+        return "admin/ejercicios/ejercicios-modifica";
     }
     
     @GetMapping("/ejercicios/editar/{idEjercicio}")  
     public String modificarEjercicios(Ejercicio ejercicio, Model model) {
        ejercicio = ejercicioService.getEjercicioById(ejercicio);
        model.addAttribute("ejercicio", ejercicio);
-        return "/admin/ejercicios/ejercicios-modifica";
+        return "admin/ejercicios/ejercicios-modifica";
     }
 
     @GetMapping("/ejercicios/eliminar/{idEjercicio}") 

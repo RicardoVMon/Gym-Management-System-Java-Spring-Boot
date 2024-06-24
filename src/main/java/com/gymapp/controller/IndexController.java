@@ -20,7 +20,7 @@ public class IndexController {
         // Agregamos el valor al modelo para pasarlo a la vista
         model.addAttribute("userId", userId);
 
-        return "/index";
+        return "index";
     }
 
 }
