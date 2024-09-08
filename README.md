@@ -1,71 +1,71 @@
-# Aplicación Web de Gestión de Gimnasio
+# Gym Management Web Application
 
-Esta aplicación web, construida utilizando Java Spring Boot, está diseñada para facilitar la gestión de la relación entre entrenador y usuario dentro de un entorno de gimnasio. Proporciona funciones para que los administradores asignen rutinas predefinidas a los usuarios, gestionen ejercicios dentro de estas rutinas y mantengan una lista de ejercicios que pueden agregarse a las rutinas mediante operaciones CRUD. Además, los administradores tienen la capacidad de eliminar usuarios de la base de datos.
+This web application, built using Java Spring Boot, is designed to facilitate the management of trainer-user relationships in a gym environment. It provides features for administrators to assign predefined routines to users, manage exercises within those routines, and maintain a list of exercises that can be added to the routines through CRUD operations. Additionally, administrators have the ability to remove users from the database.
 
-## Características
+## Features
 
-- **Autenticación de Usuario**: La aplicación incluye un sólido sistema de inicio de sesión y registro para nuevos usuarios.
-- **Gestión de Rutinas**: Los administradores pueden asignar rutinas predefinidas a los usuarios.
-- **Gestión de Ejercicios**: Los administradores pueden asignar ejercicios a rutinas y gestionar la lista de ejercicios disponibles.
-- **Funciones de Usuario**: Los usuarios normales pueden ver sus rutinas asignadas, ejercicios dentro de ellas y acceder a una sección para estiramientos antes o después del entrenamiento.
-- **Seguimiento de Medidas**: Los usuarios pueden realizar un seguimiento de las medidas de su cuerpo a lo largo del tiempo.
+- **User Authentication**: The app includes a robust login and registration system for new users.
+- **Routine Management**: Administrators can assign predefined routines to users.
+- **Exercise Management**: Administrators can assign exercises to routines and manage the list of available exercises.
+- **User Functions**: Regular users can view their assigned routines, exercises within them, and access a section for warm-up or cool-down stretches.
+- **Measurement Tracking**: Users can track their body measurements over time.
 
-## Tecnologías Utilizadas
+## Technologies Used
 
-- **Java Spring Boot**: Proporciona el marco para construir aplicaciones web robustas y escalables.
-- **Spring Security**: Gestiona la autenticación y autorización.
-- **Spring Data JPA**: Simplifica el acceso a datos proporcionando una implementación de repositorio para trabajar con datos.
-- **Thymeleaf**: Utilizado para la representación de plantillas Java en el lado del servidor.
-- **MySQL**: Sistema de gestión de bases de datos para almacenar datos de la aplicación.
-- **Bootstrap**: Librería de diseño UI/UX.
+- **Java Spring Boot**: Provides the framework for building robust and scalable web applications.
+- **Spring Security**: Manages authentication and authorization.
+- **Spring Data JPA**: Simplifies data access by providing a repository implementation for working with data.
+- **Thymeleaf**: Used for server-side Java template rendering.
+- **MySQL**: Database management system for storing application data.
+- **Bootstrap**: UI/UX design library.
 
-## Instalación
+## Installation
 
-1. Clona el repositorio:
+1. Clone the repository:
 
    ```bash
    git clone https://github.com/RicardoVMon/Workout-Tracker-PrograWeb
    ```
 
-2. Navega hasta el directorio del proyecto:
+2. Navigate to the project directory:
 
    ```bash
-   cd directorio\Workout-Tracker-PrograWeb
+   cd directory\Workout-Tracker-PrograWeb
    ```
 
-3. Configura las propiedades de la aplicación:
+3. Configure application properties:
 
-   Actualiza el archivo `application.properties` con los detalles de configuración de tu base de datos.
+   Update the `application.properties` file with your database configuration details.
 
-4. Construye la aplicación:
+4. Build the application:
 
    ```bash
    mvn clean install
    ```
 
-5. Ejecuta la aplicación:
+5. Run the application:
 
    ```bash
-   java -jar target/aplicacion.jar
+   java -jar target/application.jar
    ```
 
-6. Accede a la aplicación en tu navegador web en `http://localhost:80`.
+6. Access the application in your web browser at `http://localhost:80`.
 
-## Uso
+## Usage
 
-1. **Inicio de Sesión o Registro**: Los nuevos usuarios deben registrarse, mientras que los usuarios existentes pueden iniciar sesión utilizando sus credenciales.
+1. **Login or Register**: New users need to register, while existing users can log in with their credentials.
 
-2. **Acciones del Administrador**:
-   - Asignar rutinas a usuarios.
-   - Gestionar ejercicios dentro de rutinas (agregar, eliminar, actualizar).
-   - Operaciones CRUD en la lista de ejercicios disponibles.
-   - Eliminar usuarios de la base de datos.
+2. **Administrator Actions**:
+   - Assign routines to users.
+   - Manage exercises within routines (add, delete, update).
+   - CRUD operations on the available exercises list.
+   - Remove users from the database.
 
-3. **Acciones de Usuario**:
-   - Ver rutinas y ejercicios asignados.
-   - Acceder a estiramientos antes o después del entrenamiento.
-   - Realizar un seguimiento de las medidas corporales a lo largo del tiempo.
+3. **User Actions**:
+   - View assigned routines and exercises.
+   - Access warm-up or cool-down stretches.
+   - Track body measurements over time.
 
-## Soporte
+## Support
 
-Para cualquier problema o consulta, por favor generar un issue en el repositorio.
+For any issues or questions, please create an issue in the repository.
