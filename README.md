@@ -1,3 +1,7 @@
+Here's the updated README with the instructions for importing the database dump and assigning permissions:
+
+---
+
 # Gym Management Web Application
 
 This web application, built using Java Spring Boot, is designed to facilitate the management of trainer-user relationships in a gym environment. It provides features for administrators to assign predefined routines to users, manage exercises within those routines, and maintain a list of exercises that can be added to the routines through CRUD operations. Additionally, administrators have the ability to remove users from the database.
@@ -33,23 +37,59 @@ This web application, built using Java Spring Boot, is designed to facilitate th
    cd directory\Workout-Tracker-PrograWeb
    ```
 
-3. Configure application properties:
+3. Import the database dump:
 
-   Update the `application.properties` file with your database configuration details.
+   You need to import the `Database Script.sql` file into MySQL. First, ensure MySQL is running, then execute the following commands in the MySQL console:
 
-4. Build the application:
+   ```bash
+   mysql -u root -p
+   ```
+
+   After logging in, run:
+
+   ```bash
+   source /path/to/Database Script.sql;
+   ```
+
+   This will import the dump and create the necessary tables for the application.
+
+4. Configure database permissions:
+
+   After importing the database, create a user and grant them the necessary permissions by running the following commands in the MySQL console:
+
+   ```sql
+   CREATE USER 'admin_proyecto'@'localhost' IDENTIFIED BY 'admin_clave';
+
+   GRANT ALL PRIVILEGES ON gymapp.* TO 'admin_proyecto'@'localhost';
+
+   FLUSH PRIVILEGES;
+   ```
+
+   Replace `'admin_clave'` with a more secure password if desired. Keep in mind that you would need to change this password in the application.properties file if so.
+
+5. Update `application.properties`:
+
+   Update the `src/main/resources/application.properties` file with your database configuration details:
+
+   ```properties
+   spring.datasource.url=jdbc:mysql://localhost:3306/gymapp
+   spring.datasource.username=admin_proyecto
+   spring.datasource.password=admin_clave
+   ```
+
+6. Build the application:
 
    ```bash
    mvn clean install
    ```
 
-5. Run the application:
+7. Run the application:
 
    ```bash
    java -jar target/application.jar
    ```
 
-6. Access the application in your web browser at `http://localhost:80`.
+8. Access the application in your web browser at `http://localhost:80`.
 
 ## Usage
 
@@ -69,3 +109,5 @@ This web application, built using Java Spring Boot, is designed to facilitate th
 ## Support
 
 For any issues or questions, please create an issue in the repository.
+
+---
