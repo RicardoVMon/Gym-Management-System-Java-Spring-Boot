@@ -65,7 +65,7 @@ This web application, built using Java Spring Boot, is designed to facilitate th
    FLUSH PRIVILEGES;
    ```
 
-   Replace `'admin_clave'` with a more secure password if desired. Keep in mind that you would need to change this password in the application.properties file if so.
+   Replace `'admin_clave'` with a more secure password if desired.
 
 5. Update `application.properties`:
 
