@@ -1,5 +1,3 @@
-Here's the updated README with the instructions for importing the database dump and assigning permissions:
-
 ---
 
 # Gym Management Web Application
